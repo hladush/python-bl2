@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Lessons — Python Lessons</title>
+    <style>
+body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #1e1e1e; color: #d4d4d4; }
+.container { max-width: 900px; margin: 0 auto; padding: 20px; }
+h1 { color: #569cd6; border-bottom: 1px solid #333; padding-bottom: 10px; }
+nav { background: #252526; padding: 12px 20px; display: flex; gap: 16px; align-items: center; }
+nav a { color: #9cdcfe; text-decoration: none; font-size: 14px; }
+nav a:hover { color: #569cd6; text-decoration: underline; }
+nav .brand { color: #569cd6; font-weight: bold; font-size: 16px; margin-right: 20px; }
+.source { border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 14px; }
+.linenodiv pre { color: #555; }
+
+pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.source .hll { background-color: #49483e }
+.source { background: #272822; color: #F8F8F2 }
+.source .c { color: #959077 } /* Comment */
+.source .err { color: #ED007E; background-color: #1E0010 } /* Error */
+.source .esc { color: #F8F8F2 } /* Escape */
+.source .g { color: #F8F8F2 } /* Generic */
+.source .k { color: #66D9EF } /* Keyword */
+.source .l { color: #AE81FF } /* Literal */
+.source .n { color: #F8F8F2 } /* Name */
+.source .o { color: #FF4689 } /* Operator */
+.source .x { color: #F8F8F2 } /* Other */
+.source .p { color: #F8F8F2 } /* Punctuation */
+.source .ch { color: #959077 } /* Comment.Hashbang */
+.source .cm { color: #959077 } /* Comment.Multiline */
+.source .cp { color: #959077 } /* Comment.Preproc */
+.source .cpf { color: #959077 } /* Comment.PreprocFile */
+.source .c1 { color: #959077 } /* Comment.Single */
+.source .cs { color: #959077 } /* Comment.Special */
+.source .gd { color: #FF4689 } /* Generic.Deleted */
+.source .ge { color: #F8F8F2; font-style: italic } /* Generic.Emph */
+.source .ges { color: #F8F8F2; font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.source .gr { color: #F8F8F2 } /* Generic.Error */
+.source .gh { color: #F8F8F2 } /* Generic.Heading */
+.source .gi { color: #A6E22E } /* Generic.Inserted */
+.source .go { color: #66D9EF } /* Generic.Output */
+.source .gp { color: #FF4689; font-weight: bold } /* Generic.Prompt */
+.source .gs { color: #F8F8F2; font-weight: bold } /* Generic.Strong */
+.source .gu { color: #959077 } /* Generic.Subheading */
+.source .gt { color: #F8F8F2 } /* Generic.Traceback */
+.source .kc { color: #66D9EF } /* Keyword.Constant */
+.source .kd { color: #66D9EF } /* Keyword.Declaration */
+.source .kn { color: #FF4689 } /* Keyword.Namespace */
+.source .kp { color: #66D9EF } /* Keyword.Pseudo */
+.source .kr { color: #66D9EF } /* Keyword.Reserved */
+.source .kt { color: #66D9EF } /* Keyword.Type */
+.source .ld { color: #E6DB74 } /* Literal.Date */
+.source .m { color: #AE81FF } /* Literal.Number */
+.source .s { color: #E6DB74 } /* Literal.String */
+.source .na { color: #A6E22E } /* Name.Attribute */
+.source .nb { color: #F8F8F2 } /* Name.Builtin */
+.source .nc { color: #A6E22E } /* Name.Class */
+.source .no { color: #66D9EF } /* Name.Constant */
+.source .nd { color: #A6E22E } /* Name.Decorator */
+.source .ni { color: #F8F8F2 } /* Name.Entity */
+.source .ne { color: #A6E22E } /* Name.Exception */
+.source .nf { color: #A6E22E } /* Name.Function */
+.source .nl { color: #F8F8F2 } /* Name.Label */
+.source .nn { color: #F8F8F2 } /* Name.Namespace */
+.source .nx { color: #A6E22E } /* Name.Other */
+.source .py { color: #F8F8F2 } /* Name.Property */
+.source .nt { color: #FF4689 } /* Name.Tag */
+.source .nv { color: #F8F8F2 } /* Name.Variable */
+.source .ow { color: #FF4689 } /* Operator.Word */
+.source .pm { color: #F8F8F2 } /* Punctuation.Marker */
+.source .w { color: #F8F8F2 } /* Text.Whitespace */
+.source .mb { color: #AE81FF } /* Literal.Number.Bin */
+.source .mf { color: #AE81FF } /* Literal.Number.Float */
+.source .mh { color: #AE81FF } /* Literal.Number.Hex */
+.source .mi { color: #AE81FF } /* Literal.Number.Integer */
+.source .mo { color: #AE81FF } /* Literal.Number.Oct */
+.source .sa { color: #E6DB74 } /* Literal.String.Affix */
+.source .sb { color: #E6DB74 } /* Literal.String.Backtick */
+.source .sc { color: #E6DB74 } /* Literal.String.Char */
+.source .dl { color: #E6DB74 } /* Literal.String.Delimiter */
+.source .sd { color: #E6DB74 } /* Literal.String.Doc */
+.source .s2 { color: #E6DB74 } /* Literal.String.Double */
+.source .se { color: #AE81FF } /* Literal.String.Escape */
+.source .sh { color: #E6DB74 } /* Literal.String.Heredoc */
+.source .si { color: #E6DB74 } /* Literal.String.Interpol */
+.source .sx { color: #E6DB74 } /* Literal.String.Other */
+.source .sr { color: #E6DB74 } /* Literal.String.Regex */
+.source .s1 { color: #E6DB74 } /* Literal.String.Single */
+.source .ss { color: #E6DB74 } /* Literal.String.Symbol */
+.source .bp { color: #F8F8F2 } /* Name.Builtin.Pseudo */
+.source .fm { color: #A6E22E } /* Name.Function.Magic */
+.source .vc { color: #F8F8F2 } /* Name.Variable.Class */
+.source .vg { color: #F8F8F2 } /* Name.Variable.Global */
+.source .vi { color: #F8F8F2 } /* Name.Variable.Instance */
+.source .vm { color: #F8F8F2 } /* Name.Variable.Magic */
+.source .il { color: #AE81FF } /* Literal.Number.Integer.Long */</style>
+</head>
+<body>
+<nav><span class="brand">Python Lessons</span> <a href="index.html">Home</a> <a href="1_cycle.html" style="">Lesson 1: Cycle</a> <a href="2_arrays.html" style="">Lesson 2: Arrays</a> <a href="3_if_and_functions.html" style="">Lesson 3: If And Functions</a></nav>
+<div class="container">
+    <h1>Python Lessons</h1>
+    <p>Welcome! Pick a lesson to get started:</p>
+<p style="margin:12px 0;"><a href="1_cycle.html" style="color:#9cdcfe;font-size:18px;">Lesson 1: Cycle</a></p>
+<p style="margin:12px 0;"><a href="2_arrays.html" style="color:#9cdcfe;font-size:18px;">Lesson 2: Arrays</a></p>
+<p style="margin:12px 0;"><a href="3_if_and_functions.html" style="color:#9cdcfe;font-size:18px;">Lesson 3: If And Functions</a></p>
+
+</div>
+</body>
+</html>

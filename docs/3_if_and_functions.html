@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 3: If And Functions — Python Lessons</title>
+    <style>
+body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #1e1e1e; color: #d4d4d4; }
+.container { max-width: 900px; margin: 0 auto; padding: 20px; }
+h1 { color: #569cd6; border-bottom: 1px solid #333; padding-bottom: 10px; }
+nav { background: #252526; padding: 12px 20px; display: flex; gap: 16px; align-items: center; }
+nav a { color: #9cdcfe; text-decoration: none; font-size: 14px; }
+nav a:hover { color: #569cd6; text-decoration: underline; }
+nav .brand { color: #569cd6; font-weight: bold; font-size: 16px; margin-right: 20px; }
+.source { border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 14px; }
+.linenodiv pre { color: #555; }
+
+pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.source .hll { background-color: #49483e }
+.source { background: #272822; color: #F8F8F2 }
+.source .c { color: #959077 } /* Comment */
+.source .err { color: #ED007E; background-color: #1E0010 } /* Error */
+.source .esc { color: #F8F8F2 } /* Escape */
+.source .g { color: #F8F8F2 } /* Generic */
+.source .k { color: #66D9EF } /* Keyword */
+.source .l { color: #AE81FF } /* Literal */
+.source .n { color: #F8F8F2 } /* Name */
+.source .o { color: #FF4689 } /* Operator */
+.source .x { color: #F8F8F2 } /* Other */
+.source .p { color: #F8F8F2 } /* Punctuation */
+.source .ch { color: #959077 } /* Comment.Hashbang */
+.source .cm { color: #959077 } /* Comment.Multiline */
+.source .cp { color: #959077 } /* Comment.Preproc */
+.source .cpf { color: #959077 } /* Comment.PreprocFile */
+.source .c1 { color: #959077 } /* Comment.Single */
+.source .cs { color: #959077 } /* Comment.Special */
+.source .gd { color: #FF4689 } /* Generic.Deleted */
+.source .ge { color: #F8F8F2; font-style: italic } /* Generic.Emph */
+.source .ges { color: #F8F8F2; font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.source .gr { color: #F8F8F2 } /* Generic.Error */
+.source .gh { color: #F8F8F2 } /* Generic.Heading */
+.source .gi { color: #A6E22E } /* Generic.Inserted */
+.source .go { color: #66D9EF } /* Generic.Output */
+.source .gp { color: #FF4689; font-weight: bold } /* Generic.Prompt */
+.source .gs { color: #F8F8F2; font-weight: bold } /* Generic.Strong */
+.source .gu { color: #959077 } /* Generic.Subheading */
+.source .gt { color: #F8F8F2 } /* Generic.Traceback */
+.source .kc { color: #66D9EF } /* Keyword.Constant */
+.source .kd { color: #66D9EF } /* Keyword.Declaration */
+.source .kn { color: #FF4689 } /* Keyword.Namespace */
+.source .kp { color: #66D9EF } /* Keyword.Pseudo */
+.source .kr { color: #66D9EF } /* Keyword.Reserved */
+.source .kt { color: #66D9EF } /* Keyword.Type */
+.source .ld { color: #E6DB74 } /* Literal.Date */
+.source .m { color: #AE81FF } /* Literal.Number */
+.source .s { color: #E6DB74 } /* Literal.String */
+.source .na { color: #A6E22E } /* Name.Attribute */
+.source .nb { color: #F8F8F2 } /* Name.Builtin */
+.source .nc { color: #A6E22E } /* Name.Class */
+.source .no { color: #66D9EF } /* Name.Constant */
+.source .nd { color: #A6E22E } /* Name.Decorator */
+.source .ni { color: #F8F8F2 } /* Name.Entity */
+.source .ne { color: #A6E22E } /* Name.Exception */
+.source .nf { color: #A6E22E } /* Name.Function */
+.source .nl { color: #F8F8F2 } /* Name.Label */
+.source .nn { color: #F8F8F2 } /* Name.Namespace */
+.source .nx { color: #A6E22E } /* Name.Other */
+.source .py { color: #F8F8F2 } /* Name.Property */
+.source .nt { color: #FF4689 } /* Name.Tag */
+.source .nv { color: #F8F8F2 } /* Name.Variable */
+.source .ow { color: #FF4689 } /* Operator.Word */
+.source .pm { color: #F8F8F2 } /* Punctuation.Marker */
+.source .w { color: #F8F8F2 } /* Text.Whitespace */
+.source .mb { color: #AE81FF } /* Literal.Number.Bin */
+.source .mf { color: #AE81FF } /* Literal.Number.Float */
+.source .mh { color: #AE81FF } /* Literal.Number.Hex */
+.source .mi { color: #AE81FF } /* Literal.Number.Integer */
+.source .mo { color: #AE81FF } /* Literal.Number.Oct */
+.source .sa { color: #E6DB74 } /* Literal.String.Affix */
+.source .sb { color: #E6DB74 } /* Literal.String.Backtick */
+.source .sc { color: #E6DB74 } /* Literal.String.Char */
+.source .dl { color: #E6DB74 } /* Literal.String.Delimiter */
+.source .sd { color: #E6DB74 } /* Literal.String.Doc */
+.source .s2 { color: #E6DB74 } /* Literal.String.Double */
+.source .se { color: #AE81FF } /* Literal.String.Escape */
+.source .sh { color: #E6DB74 } /* Literal.String.Heredoc */
+.source .si { color: #E6DB74 } /* Literal.String.Interpol */
+.source .sx { color: #E6DB74 } /* Literal.String.Other */
+.source .sr { color: #E6DB74 } /* Literal.String.Regex */
+.source .s1 { color: #E6DB74 } /* Literal.String.Single */
+.source .ss { color: #E6DB74 } /* Literal.String.Symbol */
+.source .bp { color: #F8F8F2 } /* Name.Builtin.Pseudo */
+.source .fm { color: #A6E22E } /* Name.Function.Magic */
+.source .vc { color: #F8F8F2 } /* Name.Variable.Class */
+.source .vg { color: #F8F8F2 } /* Name.Variable.Global */
+.source .vi { color: #F8F8F2 } /* Name.Variable.Instance */
+.source .vm { color: #F8F8F2 } /* Name.Variable.Magic */
+.source .il { color: #AE81FF } /* Literal.Number.Integer.Long */</style>
+</head>
+<body>
+<nav><span class="brand">Python Lessons</span> <a href="index.html">Home</a> <a href="1_cycle.html" style="">Lesson 1: Cycle</a> <a href="2_arrays.html" style="">Lesson 2: Arrays</a> <a href="3_if_and_functions.html" style="font-weight:bold;">Lesson 3: If And Functions</a></nav>
+<div class="container">
+    <h1>Lesson 3: If And Functions</h1>
+    <div class="source"><table class="sourcetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span></pre></div></td><td class="code"><div><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Control Flow and Functions in Python</span>
+<span class="sd">=====================================</span>
+
+<span class="sd">IF Statements</span>
+<span class="sd">-------------</span>
+<span class="sd">If statements are used to execute a block of code based on a condition.</span>
+
+<span class="sd">Syntax:</span>
+<span class="sd">    if condition:</span>
+<span class="sd">        # code block</span>
+<span class="sd">    elif another_condition:</span>
+<span class="sd">        # code block</span>
+<span class="sd">    else:</span>
+<span class="sd">        # code block</span>
+
+<span class="sd">Example:</span>
+<span class="sd">    x = 10</span>
+<span class="sd">    if x &gt; 0:</span>
+<span class="sd">        print(&quot;Positive&quot;)</span>
+<span class="sd">    elif x &lt; 0:</span>
+<span class="sd">        print(&quot;Negative&quot;)</span>
+<span class="sd">    else:</span>
+<span class="sd">        print(&quot;Zero&quot;)</span>
+
+<span class="sd">Functions</span>
+<span class="sd">---------</span>
+<span class="sd">Functions are reusable blocks of code that perform a specific task.</span>
+
+<span class="sd">Syntax:</span>
+<span class="sd">    def function_name(parameters):</span>
+<span class="sd">        &#39;&#39;&#39;Function docstring&#39;&#39;&#39;</span>
+<span class="sd">        # code block</span>
+<span class="sd">        return value</span>
+
+<span class="sd">Example:</span>
+<span class="sd">    def add(a, b):</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+<span class="sd">        Adds two numbers together.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            a (int/float): First number</span>
+<span class="sd">            b (int/float): Second number</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            int/float: Sum of a and b</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+<span class="sd">        return a + b</span>
+
+<span class="sd">    result = add(3, 5)  # result = 8</span>
+
+<span class="sd">Notes:</span>
+<span class="sd">    - Functions can have default parameter values: def func(x, y=10)</span>
+<span class="sd">    - Functions can return multiple values: return x, y</span>
+<span class="sd">    - Functions can accept variable arguments: def func(*args, **kwargs)</span>
+<span class="sd">    - If statements can be nested inside functions and vice versa</span>
+<span class="sd">    - A function without a return statement returns None by default</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># =============================================================================</span>
+<span class="c1"># IF STATEMENT TASKS</span>
+<span class="c1"># =============================================================================</span>
+
+<span class="c1"># Task 1: Grade Checker</span>
+<span class="c1"># Write an if/elif/else statement that prints the letter grade based on a score.</span>
+<span class="c1"># Score &gt;= 90: &quot;A&quot;, &gt;= 80: &quot;B&quot;, &gt;= 70: &quot;C&quot;, &gt;= 60: &quot;D&quot;, else: &quot;F&quot;</span>
+<span class="n">score</span> <span class="o">=</span> <span class="mi">85</span>
+<span class="c1"># YOUR CODE HERE</span>
+
+
+<span class="c1"># Task 2: Even or Odd</span>
+<span class="c1"># Write an if/else statement that prints whether a number is &quot;Even&quot; or &quot;Odd&quot;</span>
+<span class="n">number</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="c1"># YOUR CODE HERE</span>
+
+
+<span class="c1"># Task 3: FizzBuzz</span>
+<span class="c1"># Write an if/elif/else statement that:</span>
+<span class="c1"># - prints &quot;FizzBuzz&quot; if the number is divisible by both 3 and 5</span>
+<span class="c1"># - prints &quot;Fizz&quot; if divisible by 3</span>
+<span class="c1"># - prints &quot;Buzz&quot; if divisible by 5</span>
+<span class="c1"># - otherwise prints the number itself</span>
+<span class="n">num</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="c1"># YOUR CODE HERE</span>
+
+
+<span class="c1"># =============================================================================</span>
+<span class="c1"># FUNCTIONS TASKS</span>
+<span class="c1"># =============================================================================</span>
+
+<span class="c1"># Task 4: Temperature Converter</span>
+<span class="c1"># Write a function called celsius_to_fahrenheit(celsius) that converts</span>
+<span class="c1"># Celsius to Fahrenheit. Formula: (celsius * 9/5) + 32</span>
+<span class="c1"># YOUR CODE HERE</span>
+
+
+<span class="c1"># Task 5: Min/Max Finder</span>
+<span class="c1"># Write a function called find_min_max(a, b, c) that takes three numbers</span>
+<span class="c1"># and returns both the minimum and maximum values.</span>
+<span class="c1"># Example: find_min_max(3, 1, 4) should return (1, 4)</span>
+<span class="c1"># YOUR CODE HERE</span>
+
+
+<span class="c1"># Task 6: Greeting Function with Default Parameter</span>
+<span class="c1"># Write a function called greet(name, greeting=&quot;Hello&quot;) that prints</span>
+<span class="c1"># a greeting message. If no greeting is provided, use &quot;Hello&quot;.</span>
+<span class="c1"># Example: greet(&quot;Alice&quot;) -&gt; &quot;Hello, Alice!&quot;</span>
+<span class="c1"># Example: greet(&quot;Bob&quot;, &quot;Hi&quot;) -&gt; &quot;Hi, Bob!&quot;</span>
+<span class="c1"># YOUR CODE HERE</span>
+
+
+<span class="c1"># Task 7: Calculator</span>
+<span class="c1"># Write a function called calculate(a, b, operation=&quot;add&quot;) that performs</span>
+<span class="c1"># basic math operations: &quot;add&quot;, &quot;subtract&quot;, &quot;multiply&quot;, &quot;divide&quot;.</span>
+<span class="c1"># Handle division by zero by returning None and printing a warning.</span>
+<span class="c1"># Example: calculate(10, 2, &quot;divide&quot;) -&gt; 5.0</span>
+<span class="c1"># YOUR CODE HERE</span>
+</pre></div></td></tr></table></div>
+
+</div>
+</body>
+</html>

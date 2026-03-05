@@ -1,4 +1,3 @@
-# add information about cycle in python
 # # Cycles (Loops) in Python
 # # There are two main types of loops in Python: for and while
 
