@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 1: Variables &amp; Data Types — Python Lessons</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="index.html">🐍 Python Lessons</a>
+  <span class="sep">|</span>
+  <span class="label">Lectures</span>
+  <a href="lecture_1.html" class="active">Lecture 1: Variables</a>
+  <a href="lecture_2.html">Lecture 2: If-Else</a>
+  <a href="lecture_3.html">Lecture 3: Cycles</a>
+  <span class="sep">|</span>
+  <a href="resources.html">📚 Resources</a>
+  <span class="sep">|</span>
+  <span class="label">Homework</span>
+  <a href="homework_1.html">HW 1</a>
+  <a href="homework_2.html">HW 2</a>
+  <a href="homework_3.html">HW 3</a>
+</nav>
+
+<div class="container">
+  <h1>📖 Lecture 1: Variables &amp; Data Types</h1>
+  <p>In this lecture you will learn how to store information in Python using <strong>variables</strong>,
+  and what different <strong>data types</strong> look like.</p>
+
+  <!-- ─────────────────────────────── Variables ─────────────────────────────── -->
+  <h2>1. What is a Variable?</h2>
+  <p>A variable is like a <strong>labeled box</strong> — you give it a name and store a value inside.
+  You can always look inside the box or change what's in it.</p>
+
+  <pre><code class="language-python"># Creating variables
+name = "Alice"       # text
+age  = 12            # whole number
+height = 1.55        # decimal number
+is_student = True    # yes / no
+
+# Printing variables
+print(name)          # Alice
+print(age)           # 12
+print(is_student)    # True</code></pre>
+
+  <div class="tip">
+    <strong>💡 Naming rules:</strong>
+    Use lowercase letters and underscores: <code>my_name</code>, <code>favorite_color</code>.
+    Variable names cannot start with a number and cannot have spaces.
+  </div>
+
+  <!-- ─────────────────────────────── Data Types ────────────────────────────── -->
+  <h2>2. Data Types</h2>
+  <p>Every value in Python has a <strong>type</strong>. The four most common types are:</p>
+
+  <pre><code class="language-python">x = 42          # int   — whole numbers: 0, 1, -5, 100
+y = 3.14        # float — decimal numbers: 1.5, -0.7, 3.14
+z = "hello"     # str   — text in quotes: "hi", 'world'
+flag = True     # bool  — only two values: True or False
+
+# Check the type of any value with type()
+print(type(x))     # &lt;class 'int'&gt;
+print(type(y))     # &lt;class 'float'&gt;
+print(type(z))     # &lt;class 'str'&gt;
+print(type(flag))  # &lt;class 'bool'&gt;</code></pre>
+
+  <!-- ─────────────────────────────── Numbers ───────────────────────────────── -->
+  <h2>3. Working with Numbers</h2>
+  <pre><code class="language-python">a = 10
+b = 3
+
+print(a + b)   # 13  — addition
+print(a - b)   # 7   — subtraction
+print(a * b)   # 30  — multiplication
+print(a / b)   # 3.333...  — division (always float)
+print(a // b)  # 3   — floor division (whole part only)
+print(a % b)   # 1   — remainder
+print(a ** b)  # 1000 — power (10 to the 3rd)</code></pre>
+
+  <!-- ─────────────────────────────── Strings ───────────────────────────────── -->
+  <h2>4. Working with Strings</h2>
+  <pre><code class="language-python">name = "Alice"
+
+print(len(name))          # 5     — length
+print(name.upper())       # ALICE — all uppercase
+print(name.lower())       # alice — all lowercase
+
+# Combining strings (concatenation)
+greeting = "Hello, " + name + "!"
+print(greeting)           # Hello, Alice!
+
+# f-strings — the easiest way to insert variables into text
+age = 12
+print(f"My name is {name} and I am {age} years old.")
+# My name is Alice and I am 12 years old.</code></pre>
+
+  <!-- ─────────────────────────────── Type conversion ───────────────────────── -->
+  <h2>5. Converting Between Types</h2>
+  <pre><code class="language-python"># String → Number
+num = int("42")      # 42
+dec = float("3.14")  # 3.14
+
+# Number → String
+text = str(100)      # "100"
+
+# Useful when reading user input:
+user_input = input("Enter a number: ")   # input() always returns a string
+number = int(user_input)                  # convert to int before doing math
+print(number + 5)</code></pre>
+
+  <div class="tip">
+    <strong>💡 Remember:</strong> <code>input()</code> always gives you a string.
+    If you want to do math with it, convert it first with <code>int()</code> or <code>float()</code>.
+  </div>
+
+  <!-- ─────────────────────────────── Tasks ────────────────────────────────── -->
+  <div class="tasks">
+    <h2>🎯 Tasks</h2>
+
+    <div class="task">
+      <h3>Task 1 — About Me</h3>
+      <p>Create 4 variables: your <code>name</code>, <code>age</code>, <code>favorite_color</code>,
+      and <code>likes_coding</code> (True or False).<br>
+      Print each variable and its type using <code>type()</code>.</p>
+    </div>
+
+    <div class="task">
+      <h3>Task 2 — Math Time</h3>
+      <p>Create two number variables <code>a</code> and <code>b</code>. Calculate and print:</p>
+      <ul>
+        <li>Their sum, difference, and product</li>
+        <li>The result of <code>a</code> divided by <code>b</code> (both regular and floor division)</li>
+        <li>The remainder when dividing <code>a</code> by <code>b</code></li>
+      </ul>
+    </div>
+
+    <div class="task">
+      <h3>Task 3 — String Fun</h3>
+      <p>Create a variable with your full name. Print:</p>
+      <ul>
+        <li>Its length</li>
+        <li>The name in ALL CAPS</li>
+        <li>The name in all lowercase</li>
+      </ul>
+    </div>
+
+    <div class="task">
+      <h3>Task 4 — f-String Message</h3>
+      <p>Using variables (not hardcoded text), print a sentence like:<br>
+      <em>"My name is Alice, I am 12 years old, and my favorite color is blue."</em><br>
+      Use an f-string.</p>
+    </div>
+
+    <div class="task">
+      <h3>Task 5 — Type Conversion</h3>
+      <p>Ask the user to enter their age with <code>input()</code>.<br>
+      Convert it to an integer, add <code>10</code>, and print:<br>
+      <em>"In 10 years you will be X years old."</em></p>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>

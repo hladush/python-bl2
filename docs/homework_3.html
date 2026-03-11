@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework 3: Cycles — Python Lessons</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="index.html">🐍 Python Lessons</a>
+  <span class="sep">|</span>
+  <span class="label">Lectures</span>
+  <a href="lecture_1.html">Lecture 1: Variables</a>
+  <a href="lecture_2.html">Lecture 2: If-Else</a>
+  <a href="lecture_3.html">Lecture 3: Cycles</a>
+  <span class="sep">|</span>
+  <a href="resources.html">📚 Resources</a>
+  <span class="sep">|</span>
+  <span class="label">Homework</span>
+  <a href="homework_1.html">HW 1</a>
+  <a href="homework_2.html">HW 2</a>
+  <a href="homework_3.html" class="active">HW 3</a>
+</nav>
+
+<div class="container">
+  <h1>✏️ Homework 3: Cycles (Loops)</h1>
+  <p>Complete all tasks below. Write your code in a file called <code>homework_3.py</code> and run it to check your answers.</p>
+
+  <div class="tip">
+    <strong>💡 Reminder:</strong>
+    Use <code>for i in range(...)</code> for a fixed number of repetitions,
+    <code>for item in list</code> to go through a list,
+    and <code>while condition</code> when you don't know how many times in advance.
+    Use <code>break</code> to stop early and <code>continue</code> to skip an iteration.
+  </div>
+
+  <div class="tasks">
+    <h2>🎯 Tasks</h2>
+
+    <div class="task">
+      <h3>Task 1 — Multiplication Table</h3>
+      <p>Ask the user to enter a number. Print the full multiplication table for that number (from 1 to 10).</p>
+      <p>Example output for <code>7</code>:</p>
+      <pre style="background:#1a1a1a;padding:10px;border-radius:6px;color:#a8d8a8;font-size:14px;">7 x 1 = 7
+7 x 2 = 14
+...
+7 x 10 = 70</pre>
+    </div>
+
+    <div class="task">
+      <h3>Task 2 — Find the Biggest</h3>
+      <p>Ask the user to enter 5 numbers one by one (using a loop).<br>
+      After all 5 are entered, print the largest number.<br>
+      Do not use the built-in <code>max()</code> function — find it yourself!</p>
+    </div>
+
+    <div class="task">
+      <h3>Task 3 — FizzBuzz Extended</h3>
+      <p>Print all numbers from 1 to 50. But replace:</p>
+      <ul>
+        <li>multiples of 3 with <em>"Fizz"</em></li>
+        <li>multiples of 5 with <em>"Buzz"</em></li>
+        <li>multiples of both 3 and 5 with <em>"FizzBuzz"</em></li>
+      </ul>
+      <p>Count how many <em>"Fizz"</em>, <em>"Buzz"</em>, and <em>"FizzBuzz"</em> appear, and print the counts at the end.</p>
+    </div>
+
+    <div class="task">
+      <h3>Task 4 — Shopping List</h3>
+      <p>Use a <code>while</code> loop to let the user add items to a shopping list one by one.<br>
+      Stop when the user types <em>"done"</em>.<br>
+      After they are done, print the full list with numbered items and the total count.</p>
+    </div>
+
+    <div class="task">
+      <h3>Task 5 — Diamond Pattern ⭐</h3>
+      <p>Use nested loops to print a diamond of stars. For size 3 the output should be:</p>
+      <pre style="background:#1a1a1a;padding:10px;border-radius:6px;color:#a8d8a8;font-size:14px;">  *
+ ***
+*****
+ ***
+  *</pre>
+      <p>Ask the user for the size (the middle row will have <code>2 * size - 1</code> stars).<br>
+      Hint: split it into two parts — the top half (including the middle) and the bottom half.</p>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>
