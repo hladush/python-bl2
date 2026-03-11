@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework 4: Build &amp; Deploy Your Homework Site — Python Lessons</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="../index.html">🐍 Python Lessons</a>
+  <span class="sep">|</span>
+  <div class="dropdown">
+    <span class="dropdown-toggle">📖 Lectures ▾</span>
+    <div class="dropdown-menu">
+      <a href="../lectures/lecture_1.html">Lecture 1: Variables &amp; Data Types</a>
+      <a href="../lectures/lecture_2.html">Lecture 2: If-Else Conditions</a>
+      <a href="../lectures/lecture_3.html">Lecture 3: Cycles (Loops)</a>
+    </div>
+  </div>
+  <span class="sep">|</span>
+  <a href="../resources.html">📚 Resources</a>
+  <span class="sep">|</span>
+  <div class="dropdown">
+    <span class="dropdown-toggle">✏️ Homework ▾</span>
+    <div class="dropdown-menu">
+      <a href="homework_1.html">Homework 1: Variables &amp; Types</a>
+      <a href="homework_2.html">Homework 2: If-Else</a>
+      <a href="homework_3.html">Homework 3: Cycles</a>
+      <a href="homework_4.html" class="active">Homework 4: Build &amp; Deploy</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h1>✏️ Homework 4: Build &amp; Deploy Your Homework Site</h1>
+  <p>
+    You have solved three Python homework sets — now it's time to <strong>show your work to the world!</strong>
+    In this homework you will create a personal website that displays all your solutions
+    and publish it live on <strong>GitHub Pages</strong> so anyone can visit it with a link.
+  </p>
+
+  <div class="tip">
+    <strong>💡 You already know HTML!</strong>
+    This very site is built with HTML. Open any page, right-click anywhere, and choose
+    <em>"View Page Source"</em> to see how it's made. Feel free to borrow ideas from it!
+  </div>
+
+  <div class="tasks">
+    <h2>🎯 Tasks</h2>
+
+    <div class="task">
+      <h3>Task 1 — Create a GitHub Repository</h3>
+      <p>
+        Create a free account on <a href="https://github.com" target="_blank" rel="noopener">github.com</a>
+        if you don't have one yet.<br>
+        Then create a new <strong>public</strong> repository named <code>python-homework</code>
+        and initialize it with a README file.
+      </p>
+      <details class="hint">
+        <summary>💡 Hint</summary>
+        <div class="hint-body">
+          After logging in, click the <strong>+</strong> icon in the top-right corner → <em>New repository</em>.
+          Set the name to <code>python-homework</code>, choose <em>Public</em>,
+          tick <em>"Add a README file"</em>, then click <em>Create repository</em>.
+        </div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 2 — Build Your index.html</h3>
+      <p>
+        Create a file called <code>index.html</code> in your repository.
+        It should have:
+      </p>
+      <ul>
+        <li>An <code>&lt;h1&gt;</code> with your name</li>
+        <li>A short intro paragraph: what you learned in this Python course</li>
+        <li>Three sections with headings: <em>Homework 1</em>, <em>Homework 2</em>, <em>Homework 3</em>
+            (the code will go inside them in the next task)</li>
+      </ul>
+      <details class="hint">
+        <summary>💡 Hint 1</summary>
+        <div class="hint-body">
+          Start with the HTML5 boilerplate:
+          <pre><code class="language-python"># This is HTML, not Python — but the structure is similar!
+# Copy this into index.html:</code></pre>
+          <pre style="background:#1a1a1a;padding:10px;border-radius:6px;color:#9cdcfe;font-size:13px;">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;My Python Homework&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Alice's Python Homework&lt;/h1&gt;
+  &lt;p&gt;I learned Python this year!&lt;/p&gt;
+  &lt;h2&gt;Homework 1 — Variables&lt;/h2&gt;
+  &lt;h2&gt;Homework 2 — If-Else&lt;/h2&gt;
+  &lt;h2&gt;Homework 3 — Cycles&lt;/h2&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+        </div>
+      </details>
+      <details class="hint">
+        <summary>💡 Hint 2</summary>
+        <div class="hint-body">
+          You can create the file directly on GitHub: open your repository,
+          click <em>Add file → Create new file</em>, type <code>index.html</code> as the name,
+          paste your code, and click <em>Commit changes</em>.
+        </div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 3 — Add Your HW1 &amp; HW2 Solutions</h3>
+      <p>
+        Inside each homework section, add your Python solutions as <strong>syntax-highlighted code blocks</strong>
+        using Prism.js (the same library this site uses).
+        Add all 5 solutions from Homework 1 and all 5 from Homework 2.
+      </p>
+      <details class="hint">
+        <summary>💡 Hint 1</summary>
+        <div class="hint-body">
+          Add these two lines in the <code>&lt;head&gt;</code> to load Prism.js from CDN:
+          <pre style="background:#1a1a1a;padding:10px;border-radius:6px;color:#9cdcfe;font-size:13px;">&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"&gt;</pre>
+          And add these two lines just before <code>&lt;/body&gt;</code>:
+          <pre style="background:#1a1a1a;padding:10px;border-radius:6px;color:#9cdcfe;font-size:13px;">&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"&gt;&lt;/script&gt;</pre>
+        </div>
+      </details>
+      <details class="hint">
+        <summary>💡 Hint 2</summary>
+        <div class="hint-body">
+          Wrap each solution in a code block like this:
+          <pre style="background:#1a1a1a;padding:10px;border-radius:6px;color:#9cdcfe;font-size:13px;">&lt;h3&gt;Task 1 — Personal Card&lt;/h3&gt;
+&lt;pre&gt;&lt;code class="language-python"&gt;
+name = input("Enter your name: ")
+age  = input("Enter your age: ")
+city = input("Enter your city: ")
+print("--- My Info ---")
+print(f"Name: {name}")
+print(f"Age: {age}")
+print(f"City: {city}")
+print("--------------")
+&lt;/code&gt;&lt;/pre&gt;</pre>
+        </div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 4 — Add HW3 Solutions &amp; Style Your Page</h3>
+      <p>
+        Add all 5 solutions from Homework 3 in the same way.<br>
+        Then make your page look nice by adding a <code>&lt;style&gt;</code> block in the <code>&lt;head&gt;</code>
+        with at least these three styles:
+      </p>
+      <ul>
+        <li>A background color for the page</li>
+        <li>A font family for the text</li>
+        <li>A max-width and centered layout for the content</li>
+      </ul>
+      <details class="hint">
+        <summary>💡 Hint</summary>
+        <div class="hint-body">
+          Add a <code>&lt;style&gt;</code> block inside <code>&lt;head&gt;</code>:
+          <pre style="background:#1a1a1a;padding:10px;border-radius:6px;color:#9cdcfe;font-size:13px;">&lt;style&gt;
+  body {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+&lt;/style&gt;</pre>
+          Then wrap all your content inside <code>&lt;div class="container"&gt;...&lt;/div&gt;</code>.
+        </div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 5 — Deploy on GitHub Pages &amp; Share Your Link ⭐</h3>
+      <p>
+        Publish your site so it's live on the internet with a real URL!
+      </p>
+      <ul>
+        <li>Go to your <code>python-homework</code> repository on GitHub</li>
+        <li>Open <em>Settings → Pages</em></li>
+        <li>Under <em>Source</em>, select branch <code>main</code> and folder <code>/ (root)</code></li>
+        <li>Click <em>Save</em> — your site will be live at
+            <code>https://your-username.github.io/python-homework/</code></li>
+        <li>Add your live URL as an HTML comment at the top of <code>index.html</code>:
+            <code>&lt;!-- My site: https://... --&gt;</code></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>
