@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 2: If-Else — Python Lessons</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="index.html">🐍 Python Lessons</a>
+  <span class="sep">|</span>
+  <span class="label">Lectures</span>
+  <a href="lecture_1.html">Lecture 1: Variables</a>
+  <a href="lecture_2.html" class="active">Lecture 2: If-Else</a>
+  <a href="lecture_3.html">Lecture 3: Cycles</a>
+  <span class="sep">|</span>
+  <a href="resources.html">📚 Resources</a>
+  <span class="sep">|</span>
+  <span class="label">Homework</span>
+  <a href="homework_1.html">HW 1</a>
+  <a href="homework_2.html">HW 2</a>
+  <a href="homework_3.html">HW 3</a>
+</nav>
+
+<div class="container">
+  <h1>📖 Lecture 2: If-Else Conditions</h1>
+  <p>In this lecture you will learn how to make your program <strong>make decisions</strong> —
+  doing different things depending on whether a condition is true or false.</p>
+
+  <!-- ─────────────────────────────── if / else ─────────────────────────────── -->
+  <h2>1. The <code>if</code> Statement</h2>
+  <p>An <code>if</code> statement runs a block of code only when a condition is <code>True</code>.</p>
+
+  <pre><code class="language-python">age = 15
+
+if age >= 18:
+    print("You are an adult.")
+else:
+    print("You are a child.")
+
+# Output: You are a child.</code></pre>
+
+  <div class="tip">
+    <strong>💡 Indentation matters!</strong>
+    The code inside <code>if</code> must be indented (4 spaces or 1 Tab).
+    Python uses indentation to know which lines belong together.
+  </div>
+
+  <!-- ─────────────────────────────── elif ─────────────────────────────────── -->
+  <h2>2. Adding More Options with <code>elif</code></h2>
+  <p>Use <code>elif</code> (short for "else if") to check multiple conditions one after another.</p>
+
+  <pre><code class="language-python">score = 75
+
+if score >= 90:
+    print("Grade: A")
+elif score >= 80:
+    print("Grade: B")
+elif score >= 70:
+    print("Grade: C")
+elif score >= 60:
+    print("Grade: D")
+else:
+    print("Grade: F")
+
+# Output: Grade: C</code></pre>
+
+  <!-- ─────────────────────────────── Comparison operators ─────────────────── -->
+  <h2>3. Comparison Operators</h2>
+  <p>These operators compare two values and return <code>True</code> or <code>False</code>:</p>
+
+  <pre><code class="language-python">x = 10
+y = 5
+
+print(x == y)   # False  — equal to
+print(x != y)   # True   — not equal to
+print(x >  y)   # True   — greater than
+print(x <  y)   # False  — less than
+print(x >= y)   # True   — greater than or equal to
+print(x <= y)   # False  — less than or equal to</code></pre>
+
+  <!-- ─────────────────────────────── Logical operators ────────────────────── -->
+  <h2>4. Logical Operators: <code>and</code>, <code>or</code>, <code>not</code></h2>
+  <p>Combine multiple conditions together:</p>
+
+  <pre><code class="language-python">age = 14
+has_ticket = True
+
+# and — both conditions must be True
+if age >= 12 and has_ticket:
+    print("You can enter!")
+
+# or — at least one condition must be True
+is_weekend = False
+is_holiday = True
+if is_weekend or is_holiday:
+    print("No school today!")
+
+# not — flips True to False and False to True
+is_raining = False
+if not is_raining:
+    print("Let's go outside!")</code></pre>
+
+  <!-- ─────────────────────────────── Nested if ────────────────────────────── -->
+  <h2>5. Nested Conditions</h2>
+  <p>You can put an <code>if</code> inside another <code>if</code>:</p>
+
+  <pre><code class="language-python">temperature = 25
+is_sunny = True
+
+if temperature > 20:
+    if is_sunny:
+        print("Great weather for a walk!")
+    else:
+        print("Warm but cloudy.")
+else:
+    print("Too cold to go outside.")</code></pre>
+
+  <!-- ─────────────────────────────── Tasks ────────────────────────────────── -->
+  <div class="tasks">
+    <h2>🎯 Tasks</h2>
+
+    <div class="task">
+      <h3>Task 1 — Even or Odd</h3>
+      <p>Ask the user to enter a number. Print <em>"Even"</em> if it is divisible by 2,
+      or <em>"Odd"</em> otherwise.<br>
+      Hint: use the <code>%</code> (remainder) operator.</p>
+    </div>
+
+    <div class="task">
+      <h3>Task 2 — Grade Checker</h3>
+      <p>Ask the user to enter a score (0–100). Print the letter grade:</p>
+      <ul>
+        <li>90–100 → <em>"A"</em></li>
+        <li>80–89 → <em>"B"</em></li>
+        <li>70–79 → <em>"C"</em></li>
+        <li>60–69 → <em>"D"</em></li>
+        <li>below 60 → <em>"F"</em></li>
+      </ul>
+    </div>
+
+    <div class="task">
+      <h3>Task 3 — FizzBuzz</h3>
+      <p>Given a number, print:</p>
+      <ul>
+        <li><em>"FizzBuzz"</em> if it is divisible by both 3 and 5</li>
+        <li><em>"Fizz"</em> if divisible by 3</li>
+        <li><em>"Buzz"</em> if divisible by 5</li>
+        <li>The number itself otherwise</li>
+      </ul>
+      <p>Test with: 15, 9, 10, 7.</p>
+    </div>
+
+    <div class="task">
+      <h3>Task 4 — Can I Enter?</h3>
+      <p>Create two variables: <code>age</code> and <code>has_ticket</code> (True/False).<br>
+      Print <em>"Welcome!"</em> only if the person is at least 16 <strong>and</strong> has a ticket.
+      Otherwise print a helpful message explaining which condition failed.</p>
+    </div>
+
+    <div class="task">
+      <h3>Task 5 — Season Detector</h3>
+      <p>Ask the user to enter a month number (1–12). Print the season:</p>
+      <ul>
+        <li>12, 1, 2 → <em>"Winter"</em></li>
+        <li>3, 4, 5 → <em>"Spring"</em></li>
+        <li>6, 7, 8 → <em>"Summer"</em></li>
+        <li>9, 10, 11 → <em>"Autumn"</em></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>
