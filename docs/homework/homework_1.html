@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework 1: Variables &amp; Data Types — Python Lessons</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="../index.html">🐍 Python Lessons</a>
+  <span class="sep">|</span>
+  <div class="dropdown">
+    <span class="dropdown-toggle">📖 Lectures ▾</span>
+    <div class="dropdown-menu">
+      <a href="../lectures/lecture_1.html">Lecture 1: Variables &amp; Data Types</a>
+      <a href="../lectures/lecture_2.html">Lecture 2: If-Else Conditions</a>
+      <a href="../lectures/lecture_3.html">Lecture 3: Cycles (Loops)</a>
+    </div>
+  </div>
+  <span class="sep">|</span>
+  <a href="../resources.html">📚 Resources</a>
+  <span class="sep">|</span>
+  <div class="dropdown">
+    <span class="dropdown-toggle">✏️ Homework ▾</span>
+    <div class="dropdown-menu">
+      <a href="homework_1.html" class="active">Homework 1: Variables &amp; Types</a>
+      <a href="homework_2.html">Homework 2: If-Else</a>
+      <a href="homework_3.html">Homework 3: Cycles</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h1>✏️ Homework 1: Variables &amp; Data Types</h1>
+  <p>Complete all tasks below. Write your code in a file called <code>homework_1.py</code> and run it to check your answers.</p>
+
+  <div class="tip">
+    <strong>💡 Quick reminder:</strong>
+    Use <code>input()</code> to read from the user, <code>int()</code> / <code>float()</code> to convert to numbers,
+    and f-strings like <code>f"Hello, {name}!"</code> to build messages.
+  </div>
+
+  <div class="tasks">
+    <h2>🎯 Tasks</h2>
+
+    <div class="task">
+      <h3>Task 1 — Personal Card</h3>
+      <p>Ask the user to enter their name, age, and city.
+      Then print a formatted card:</p>
+      <pre style="background:#1a1a1a;padding:10px;border-radius:6px;color:#a8d8a8;font-size:14px;">--- My Info ---
+Name: Alice
+Age: 12
+City: Kyiv
+--------------</pre>
+      <details class="hint">
+        <summary>💡 Hint</summary>
+        <div class="hint-body">Use three <code>input()</code> calls to get each piece of info, then print them
+        with f-strings. The separator lines are just plain <code>print("--- My Info ---")</code>.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 2 — Rectangle Calculator</h3>
+      <p>Ask the user to enter the width and height of a rectangle (as numbers).
+      Calculate and print the area (width × height) and the perimeter (2 × (width + height)).</p>
+      <details class="hint">
+        <summary>💡 Hint 1</summary>
+        <div class="hint-body">Use <code>float(input(...))</code> to read a decimal number from the user.</div>
+      </details>
+      <details class="hint">
+        <summary>💡 Hint 2</summary>
+        <div class="hint-body">Area = <code>width * height</code>. Perimeter = <code>2 * (width + height)</code>.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 3 — String Inspector</h3>
+      <p>Ask the user to enter any word. Print: the word in uppercase, in lowercase, its length,
+      and the first and last letters.</p>
+      <details class="hint">
+        <summary>💡 Hint</summary>
+        <div class="hint-body"><code>word[0]</code> is the first character. <code>word[-1]</code> is the last character
+        (negative index counts from the end). <code>len(word)</code> gives the total length.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 4 — Piggy Bank</h3>
+      <p>Ask the user how many 1-hryvnia, 2-hryvnia, and 5-hryvnia coins they have.
+      Calculate the total and print: <em>"Total: X hryvnias"</em>.</p>
+      <details class="hint">
+        <summary>💡 Hint</summary>
+        <div class="hint-body">Total = <code>coins_1 * 1 + coins_2 * 2 + coins_5 * 5</code>.
+        Make sure to convert the inputs to integers with <code>int()</code>.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 5 — Type Guesser ⭐</h3>
+      <p>Ask the user to enter a value. Without using <code>type()</code>, determine what type it looks like and print your guess:</p>
+      <ul>
+        <li><code>"True"</code> or <code>"False"</code> → <em>"This looks like a boolean!"</em></li>
+        <li>Only digits → <em>"This looks like an integer!"</em></li>
+        <li>Has a dot and digits → <em>"This looks like a float!"</em></li>
+        <li>Anything else → <em>"This looks like a string!"</em></li>
+      </ul>
+      <p>Hints: <code>text.isdigit()</code> checks if all characters are digits. <code>"." in text</code> checks for a dot.</p>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>

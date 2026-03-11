@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 3: Cycles — Python Lessons</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="../index.html">🐍 Python Lessons</a>
+  <span class="sep">|</span>
+  <div class="dropdown">
+    <span class="dropdown-toggle">📖 Lectures ▾</span>
+    <div class="dropdown-menu">
+      <a href="lecture_1.html">Lecture 1: Variables &amp; Data Types</a>
+      <a href="lecture_2.html">Lecture 2: If-Else Conditions</a>
+      <a href="lecture_3.html" class="active">Lecture 3: Cycles (Loops)</a>
+    </div>
+  </div>
+  <span class="sep">|</span>
+  <a href="../resources.html">📚 Resources</a>
+  <span class="sep">|</span>
+  <div class="dropdown">
+    <span class="dropdown-toggle">✏️ Homework ▾</span>
+    <div class="dropdown-menu">
+      <a href="../homework/homework_1.html">Homework 1: Variables &amp; Types</a>
+      <a href="../homework/homework_2.html">Homework 2: If-Else</a>
+      <a href="../homework/homework_3.html">Homework 3: Cycles</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h1>📖 Lecture 3: Cycles (Loops)</h1>
+  <p>A <strong>loop</strong> lets you run the same block of code many times without repeating yourself.
+  Python has two types of loops: <code>for</code> and <code>while</code>.</p>
+
+  <h2>1. The <code>for</code> Loop with <code>range()</code></h2>
+  <pre><code class="language-python"># Counting from 0 to 4
+for i in range(5):
+    print(i)
+# Prints: 0  1  2  3  4
+
+# range(start, stop) — from start up to (but not including) stop
+for i in range(1, 6):
+    print(i)
+# Prints: 1  2  3  4  5
+
+# range(start, stop, step) — every 2nd number
+for i in range(0, 10, 2):
+    print(i)
+# Prints: 0  2  4  6  8
+
+# Counting backwards
+for i in range(5, 0, -1):
+    print(i)
+# Prints: 5  4  3  2  1</code></pre>
+
+  <h2>2. Looping Over a List</h2>
+  <pre><code class="language-python">fruits = ["apple", "banana", "cherry"]
+
+for fruit in fruits:
+    print(fruit)
+# apple
+# banana
+# cherry
+
+# Loop with both index and value using enumerate()
+for i, fruit in enumerate(fruits):
+    print(f"{i + 1}. {fruit}")
+# 1. apple
+# 2. banana
+# 3. cherry</code></pre>
+
+  <h2>3. The <code>while</code> Loop</h2>
+  <p>A <code>while</code> loop keeps running <em>as long as</em> a condition is <code>True</code>.</p>
+
+  <pre><code class="language-python">count = 1
+while count <= 5:
+    print(count)
+    count += 1   # count = count + 1
+# Prints: 1  2  3  4  5
+
+# Asking until the user enters the right answer
+secret = "python"
+guess = ""
+while guess != secret:
+    guess = input("Guess the secret word: ")
+print("Correct! 🎉")</code></pre>
+
+  <div class="tip">
+    <strong>⚠️ Infinite loop!</strong>
+    If the condition in a <code>while</code> loop never becomes <code>False</code>,
+    the program runs forever. Always make sure something changes inside the loop!
+  </div>
+
+  <h2>4. <code>break</code> and <code>continue</code></h2>
+  <pre><code class="language-python"># break — stop the loop immediately
+for i in range(10):
+    if i == 5:
+        break
+    print(i)
+# Prints: 0  1  2  3  4
+
+# continue — skip the rest of this iteration, go to the next one
+for i in range(10):
+    if i % 2 == 0:
+        continue   # skip even numbers
+    print(i)
+# Prints: 1  3  5  7  9</code></pre>
+
+  <h2>5. Nested Loops</h2>
+  <pre><code class="language-python"># Drawing a triangle with stars
+for i in range(1, 6):
+    print("*" * i)
+# *
+# **
+# ***
+# ****
+# *****
+
+# Multiplication table (3x3)
+for i in range(1, 4):
+    for j in range(1, 4):
+        print(f"{i} x {j} = {i*j}")
+    print()   # blank line after each row</code></pre>
+
+  <!-- ── Tasks ── -->
+  <div class="tasks">
+    <h2>🎯 Tasks</h2>
+
+    <div class="task">
+      <h3>Task 1 — Count Down</h3>
+      <p>Use a <code>for</code> loop to print numbers from 10 down to 1, then print <em>"Blast off! 🚀"</em>.</p>
+      <details class="hint">
+        <summary>💡 Hint</summary>
+        <div class="hint-body"><code>range(10, 0, -1)</code> generates: 10, 9, 8 … 1.
+        The third argument is the step — a negative step counts backwards.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 2 — Sum of Numbers</h3>
+      <p>Ask the user to enter a number <code>n</code>. Use a loop to calculate the sum of all numbers
+      from 1 to <code>n</code> and print the result. Example: <code>n = 5</code> → <em>"Sum = 15"</em>.</p>
+      <details class="hint">
+        <summary>💡 Hint 1</summary>
+        <div class="hint-body">Create a <code>total = 0</code> variable <em>before</em> the loop.
+        Inside the loop, add each number to it: <code>total += i</code>.</div>
+      </details>
+      <details class="hint">
+        <summary>💡 Hint 2</summary>
+        <div class="hint-body">Use <code>range(1, n + 1)</code> — the stop value is exclusive,
+        so you need <code>n + 1</code> to include <code>n</code> itself.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 3 — Favourite List</h3>
+      <p>Create a list of 5 of your favourite things. Use a <code>for</code> loop to print each one
+      with its position number. Example: <em>"1. Pizza"</em>, <em>"2. Minecraft"</em>, …</p>
+      <details class="hint">
+        <summary>💡 Hint</summary>
+        <div class="hint-body"><code>enumerate(my_list)</code> gives you both the index and the value at once:
+        <code>for i, item in enumerate(my_list)</code>. Add 1 to <code>i</code> so the count starts at 1.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 4 — Guess the Number</h3>
+      <p>Pick a secret number (hardcode it). Use a <code>while</code> loop to keep asking the user to guess.
+      Print <em>"Too high!"</em>, <em>"Too low!"</em>, or <em>"Correct! 🎉"</em> after each guess.</p>
+      <details class="hint">
+        <summary>💡 Hint 1</summary>
+        <div class="hint-body">Use <code>while True</code> and <code>break</code> when the guess is correct.
+        This keeps the loop running until you explicitly stop it.</div>
+      </details>
+      <details class="hint">
+        <summary>💡 Hint 2</summary>
+        <div class="hint-body"><code>input()</code> returns a string. Convert it to an integer first:
+        <code>guess = int(input("Your guess: "))</code>.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 5 — Star Triangle ⭐</h3>
+      <p>Use a nested loop to print a 5-row right-aligned triangle of stars:</p>
+      <pre style="background:#1a1a1a;padding:10px;border-radius:6px;color:#a8d8a8;font-size:14px;">    *
+   **
+  ***
+ ****
+*****</pre>
+      <p>Hint: each row needs spaces before the stars. The number of spaces decreases as the row grows.</p>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>
