@@ -10,40 +10,75 @@ The site has **three sections**: Lectures, Useful Resources, and Homework.
 
 ## Site Structure
 
-All pages live directly in `docs/` as plain HTML files. There is no build step.
+No build step — all pages are plain HTML files. Lectures and homework each live in their own subdirectory.
 
-| File | Description |
-|---|---|
-| `docs/index.html` | Homepage with cards linking to all three sections |
-| `docs/lecture_1.html` | Lecture 1: Variables & Data Types |
-| `docs/lecture_2.html` | Lecture 2: If-Else Conditions |
-| `docs/lecture_3.html` | Lecture 3: Cycles (Loops) |
-| `docs/resources.html` | Curated list of Python learning resources |
-| `docs/homework_1.html` | Homework 1 |
-| `docs/homework_2.html` | Homework 2 |
-| `docs/homework_3.html` | Homework 3 |
-| `docs/style.css` | Shared dark-theme CSS used by all pages |
+```
+docs/
+  index.html              ← homepage
+  resources.html          ← curated learning links
+  style.css               ← shared dark-theme CSS
+  lectures/
+    lecture_1.html        ← Lecture 1: Variables & Data Types
+    lecture_2.html        ← Lecture 2: If-Else Conditions
+    lecture_3.html        ← Lecture 3: Cycles (Loops)
+  homework/
+    homework_1.html
+    homework_2.html
+    homework_3.html
+```
 
-## Page Conventions
+## Navigation
 
-- All pages share the same `<nav>` block — copy it exactly and add `class="active"` to the current page's link.
-- Syntax highlighting uses **Prism.js** loaded from CDN (`prism-tomorrow` theme). Add the two `<script>` tags at the bottom of any page with code blocks and wrap code with `<pre><code class="language-python">`.
+The nav uses **CSS-only dropdowns** (no JS). There are two dropdown menus: Lectures and Homework.
+
+- Use `<div class="dropdown">` wrapping a `<span class="dropdown-toggle">` and a `<div class="dropdown-menu">`.
+- Add `class="active"` to the current page's link inside the dropdown menu.
+- Relative paths differ by folder depth — pages in `lectures/` or `homework/` use `../` to reach the root.
+
+Copy the nav from an existing page in the same folder when creating a new page.
 
 ## Lecture Structure
 
 Each lecture page must contain:
 1. A short introduction paragraph
-2. Numbered sections (h2) explaining concepts with code examples
-3. A **Tasks section** (`<div class="tasks">`) at the bottom with at least 5 tasks (`<div class="task">`)
-4. At least one `<div class="tip">` with a helpful reminder
+2. Numbered `<h2>` sections explaining concepts with `<pre><code class="language-python">` examples
+3. At least one `<div class="tip">` with a helpful reminder
+4. A **Tasks section** (`<div class="tasks">`) with exactly 5 tasks (`<div class="task">`)
+   - Tasks 1–4: each must have **1–2 collapsible hints** using `<details class="hint">`
+   - Task 5 (⭐ challenge): **no hints**
 
 ## Homework Structure
 
-Homework pages contain only tasks — no explanation. Tasks should be harder than the lecture tasks and combine multiple concepts. The last task (⭐) should be a challenge task.
+Homework pages contain only tasks (no explanation sections). Tasks should be harder than lecture tasks and combine concepts from that lecture plus previous ones.
+
+- Tasks 1–4: each must have **1–2 collapsible hints** using `<details class="hint">`
+- Task 5 (⭐ challenge): **no hints**
+
+## Hint Markup
+
+```html
+<details class="hint">
+  <summary>💡 Hint</summary>
+  <div class="hint-body">Use <code>int()</code> to convert the string to a number.</div>
+</details>
+```
+
+For two hints, use two separate `<details>` with `💡 Hint 1` and `💡 Hint 2`.
+
+## Syntax Highlighting
+
+Uses **Prism.js** from CDN (`prism-tomorrow` theme). Add these two `<script>` tags at the bottom of any page with code blocks:
+
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+```
+
+Wrap code with `<pre><code class="language-python">`.
 
 ## Adding New Content
 
-- **New lecture:** create `docs/lecture_N.html`, add it to the nav in all existing pages.
-- **New homework:** create `docs/homework_N.html`, add it to the nav in all existing pages.
+- **New lecture:** create `docs/lectures/lecture_N.html`, add it to the dropdown in all existing pages.
+- **New homework:** create `docs/homework/homework_N.html`, add it to the dropdown in all existing pages.
 - **New resource:** add a `<div class="resource">` block to `docs/resources.html`.
 - **Shared styles:** edit `docs/style.css`.

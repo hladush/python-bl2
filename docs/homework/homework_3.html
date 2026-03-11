@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework 3: Cycles — Python Lessons</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="../index.html">🐍 Python Lessons</a>
+  <span class="sep">|</span>
+  <div class="dropdown">
+    <span class="dropdown-toggle">📖 Lectures ▾</span>
+    <div class="dropdown-menu">
+      <a href="../lectures/lecture_1.html">Lecture 1: Variables &amp; Data Types</a>
+      <a href="../lectures/lecture_2.html">Lecture 2: If-Else Conditions</a>
+      <a href="../lectures/lecture_3.html">Lecture 3: Cycles (Loops)</a>
+    </div>
+  </div>
+  <span class="sep">|</span>
+  <a href="../resources.html">📚 Resources</a>
+  <span class="sep">|</span>
+  <div class="dropdown">
+    <span class="dropdown-toggle">✏️ Homework ▾</span>
+    <div class="dropdown-menu">
+      <a href="homework_1.html">Homework 1: Variables &amp; Types</a>
+      <a href="homework_2.html">Homework 2: If-Else</a>
+      <a href="homework_3.html" class="active">Homework 3: Cycles</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h1>✏️ Homework 3: Cycles (Loops)</h1>
+  <p>Complete all tasks below. Write your code in a file called <code>homework_3.py</code> and run it to check your answers.</p>
+
+  <div class="tip">
+    <strong>💡 Quick reminder:</strong>
+    <code>for i in range(...)</code> for a fixed count,
+    <code>for item in list</code> to go through a list,
+    <code>while condition</code> when you don't know how many times in advance,
+    <code>break</code> to stop early, <code>continue</code> to skip an iteration.
+  </div>
+
+  <div class="tasks">
+    <h2>🎯 Tasks</h2>
+
+    <div class="task">
+      <h3>Task 1 — Multiplication Table</h3>
+      <p>Ask the user to enter a number. Print the full multiplication table for that number (1 to 10).
+      Example for 7: <em>"7 x 1 = 7"</em> … <em>"7 x 10 = 70"</em>.</p>
+      <details class="hint">
+        <summary>💡 Hint</summary>
+        <div class="hint-body">Use <code>for i in range(1, 11)</code> to loop from 1 to 10.
+        Inside the loop: <code>print(f"{n} x {i} = {n * i}")</code>.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 2 — Find the Biggest</h3>
+      <p>Ask the user to enter 5 numbers one by one (using a loop).
+      After all 5 are entered, print the largest number. Do <strong>not</strong> use <code>max()</code>.</p>
+      <details class="hint">
+        <summary>💡 Hint 1</summary>
+        <div class="hint-body">Before the loop, set <code>biggest = None</code>.
+        Inside the loop, update it: <code>if biggest is None or num > biggest: biggest = num</code>.</div>
+      </details>
+      <details class="hint">
+        <summary>💡 Hint 2</summary>
+        <div class="hint-body">Remember to convert the input to a number: <code>num = float(input(...))</code>.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 3 — FizzBuzz Extended</h3>
+      <p>Print all numbers from 1 to 50, replacing multiples of 3 with <em>"Fizz"</em>,
+      multiples of 5 with <em>"Buzz"</em>, and multiples of both with <em>"FizzBuzz"</em>.
+      Count and print how many of each appeared at the end.</p>
+      <details class="hint">
+        <summary>💡 Hint 1</summary>
+        <div class="hint-body">Create three counter variables before the loop:
+        <code>fizz_count = 0</code>, <code>buzz_count = 0</code>, <code>fizzbuzz_count = 0</code>.
+        Increment the right one inside the loop each time you print one.</div>
+      </details>
+      <details class="hint">
+        <summary>💡 Hint 2</summary>
+        <div class="hint-body">Check <code>i % 15 == 0</code> first (divisible by both 3 and 5),
+        then <code>i % 3 == 0</code>, then <code>i % 5 == 0</code>. Order matters!</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 4 — Shopping List</h3>
+      <p>Use a <code>while</code> loop to let the user add items one by one.
+      Stop when they type <em>"done"</em>.
+      Print the full numbered list and total item count at the end.</p>
+      <details class="hint">
+        <summary>💡 Hint</summary>
+        <div class="hint-body">Create an empty list: <code>items = []</code>.
+        Use <code>items.append(item)</code> to add each entry.
+        After the loop, use <code>enumerate(items, 1)</code> to print with numbers starting at 1.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 5 — Diamond Pattern ⭐</h3>
+      <p>Ask the user for a size. Print a diamond of stars. For size 3:</p>
+      <pre style="background:#1a1a1a;padding:10px;border-radius:6px;color:#a8d8a8;font-size:14px;">  *
+ ***
+*****
+ ***
+  *</pre>
+      <p>The middle row has <code>2 * size - 1</code> stars.
+      Split into two loops: top half (including middle) and bottom half.</p>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>

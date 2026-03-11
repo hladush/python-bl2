@@ -4,25 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lecture 2: If-Else — Python Lessons</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
 </head>
 <body>
 
 <nav>
-  <a class="brand" href="index.html">🐍 Python Lessons</a>
+  <a class="brand" href="../index.html">🐍 Python Lessons</a>
   <span class="sep">|</span>
-  <span class="label">Lectures</span>
-  <a href="lecture_1.html">Lecture 1: Variables</a>
-  <a href="lecture_2.html" class="active">Lecture 2: If-Else</a>
-  <a href="lecture_3.html">Lecture 3: Cycles</a>
+  <div class="dropdown">
+    <span class="dropdown-toggle">📖 Lectures ▾</span>
+    <div class="dropdown-menu">
+      <a href="lecture_1.html">Lecture 1: Variables &amp; Data Types</a>
+      <a href="lecture_2.html" class="active">Lecture 2: If-Else Conditions</a>
+      <a href="lecture_3.html">Lecture 3: Cycles (Loops)</a>
+    </div>
+  </div>
   <span class="sep">|</span>
-  <a href="resources.html">📚 Resources</a>
+  <a href="../resources.html">📚 Resources</a>
   <span class="sep">|</span>
-  <span class="label">Homework</span>
-  <a href="homework_1.html">HW 1</a>
-  <a href="homework_2.html">HW 2</a>
-  <a href="homework_3.html">HW 3</a>
+  <div class="dropdown">
+    <span class="dropdown-toggle">✏️ Homework ▾</span>
+    <div class="dropdown-menu">
+      <a href="../homework/homework_1.html">Homework 1: Variables &amp; Types</a>
+      <a href="../homework/homework_2.html">Homework 2: If-Else</a>
+      <a href="../homework/homework_3.html">Homework 3: Cycles</a>
+    </div>
+  </div>
 </nav>
 
 <div class="container">
@@ -30,7 +38,6 @@
   <p>In this lecture you will learn how to make your program <strong>make decisions</strong> —
   doing different things depending on whether a condition is true or false.</p>
 
-  <!-- ─────────────────────────────── if / else ─────────────────────────────── -->
   <h2>1. The <code>if</code> Statement</h2>
   <p>An <code>if</code> statement runs a block of code only when a condition is <code>True</code>.</p>
 
@@ -49,7 +56,6 @@ else:
     Python uses indentation to know which lines belong together.
   </div>
 
-  <!-- ─────────────────────────────── elif ─────────────────────────────────── -->
   <h2>2. Adding More Options with <code>elif</code></h2>
   <p>Use <code>elif</code> (short for "else if") to check multiple conditions one after another.</p>
 
@@ -68,7 +74,6 @@ else:
 
 # Output: Grade: C</code></pre>
 
-  <!-- ─────────────────────────────── Comparison operators ─────────────────── -->
   <h2>3. Comparison Operators</h2>
   <p>These operators compare two values and return <code>True</code> or <code>False</code>:</p>
 
@@ -82,10 +87,7 @@ print(x <  y)   # False  — less than
 print(x >= y)   # True   — greater than or equal to
 print(x <= y)   # False  — less than or equal to</code></pre>
 
-  <!-- ─────────────────────────────── Logical operators ────────────────────── -->
   <h2>4. Logical Operators: <code>and</code>, <code>or</code>, <code>not</code></h2>
-  <p>Combine multiple conditions together:</p>
-
   <pre><code class="language-python">age = 14
 has_ticket = True
 
@@ -104,10 +106,7 @@ is_raining = False
 if not is_raining:
     print("Let's go outside!")</code></pre>
 
-  <!-- ─────────────────────────────── Nested if ────────────────────────────── -->
   <h2>5. Nested Conditions</h2>
-  <p>You can put an <code>if</code> inside another <code>if</code>:</p>
-
   <pre><code class="language-python">temperature = 25
 is_sunny = True
 
@@ -119,60 +118,68 @@ if temperature > 20:
 else:
     print("Too cold to go outside.")</code></pre>
 
-  <!-- ─────────────────────────────── Tasks ────────────────────────────────── -->
+  <!-- ── Tasks ── -->
   <div class="tasks">
     <h2>🎯 Tasks</h2>
 
     <div class="task">
       <h3>Task 1 — Even or Odd</h3>
       <p>Ask the user to enter a number. Print <em>"Even"</em> if it is divisible by 2,
-      or <em>"Odd"</em> otherwise.<br>
-      Hint: use the <code>%</code> (remainder) operator.</p>
+      or <em>"Odd"</em> otherwise.</p>
+      <details class="hint">
+        <summary>💡 Hint</summary>
+        <div class="hint-body">A number is even when there is no remainder after dividing by 2.
+        Check with: <code>if number % 2 == 0</code>.</div>
+      </details>
     </div>
 
     <div class="task">
       <h3>Task 2 — Grade Checker</h3>
-      <p>Ask the user to enter a score (0–100). Print the letter grade:</p>
-      <ul>
-        <li>90–100 → <em>"A"</em></li>
-        <li>80–89 → <em>"B"</em></li>
-        <li>70–79 → <em>"C"</em></li>
-        <li>60–69 → <em>"D"</em></li>
-        <li>below 60 → <em>"F"</em></li>
-      </ul>
+      <p>Ask the user to enter a score (0–100). Print the letter grade:
+      90–100 → A, 80–89 → B, 70–79 → C, 60–69 → D, below 60 → F.</p>
+      <details class="hint">
+        <summary>💡 Hint</summary>
+        <div class="hint-body">Always check from the highest score first using <code>if / elif / elif / else</code>.
+        Once a condition matches, Python skips all the rest, so order matters!</div>
+      </details>
     </div>
 
     <div class="task">
       <h3>Task 3 — FizzBuzz</h3>
-      <p>Given a number, print:</p>
-      <ul>
-        <li><em>"FizzBuzz"</em> if it is divisible by both 3 and 5</li>
-        <li><em>"Fizz"</em> if divisible by 3</li>
-        <li><em>"Buzz"</em> if divisible by 5</li>
-        <li>The number itself otherwise</li>
-      </ul>
-      <p>Test with: 15, 9, 10, 7.</p>
+      <p>Given a number, print <em>"FizzBuzz"</em> if divisible by both 3 and 5, <em>"Fizz"</em> if by 3,
+      <em>"Buzz"</em> if by 5, or the number itself otherwise. Test with: 15, 9, 10, 7.</p>
+      <details class="hint">
+        <summary>💡 Hint 1</summary>
+        <div class="hint-body">Check the "both 3 and 5" case <strong>first</strong>! If you check 3 first,
+        you'll print "Fizz" for 15 and never reach "FizzBuzz".</div>
+      </details>
+      <details class="hint">
+        <summary>💡 Hint 2</summary>
+        <div class="hint-body">Use <code>%</code> to check divisibility: <code>num % 3 == 0</code> means
+        the number is divisible by 3 with no remainder.</div>
+      </details>
     </div>
 
     <div class="task">
       <h3>Task 4 — Can I Enter?</h3>
-      <p>Create two variables: <code>age</code> and <code>has_ticket</code> (True/False).<br>
+      <p>Create two variables: <code>age</code> and <code>has_ticket</code> (True/False).
       Print <em>"Welcome!"</em> only if the person is at least 16 <strong>and</strong> has a ticket.
-      Otherwise print a helpful message explaining which condition failed.</p>
+      Otherwise print a message explaining which condition failed.</p>
+      <details class="hint">
+        <summary>💡 Hint</summary>
+        <div class="hint-body">Use <code>and</code> to check both conditions at once:
+        <code>if age >= 16 and has_ticket</code>.
+        For the else, use two separate <code>if</code> statements to figure out which part failed.</div>
+      </details>
     </div>
 
     <div class="task">
-      <h3>Task 5 — Season Detector</h3>
-      <p>Ask the user to enter a month number (1–12). Print the season:</p>
-      <ul>
-        <li>12, 1, 2 → <em>"Winter"</em></li>
-        <li>3, 4, 5 → <em>"Spring"</em></li>
-        <li>6, 7, 8 → <em>"Summer"</em></li>
-        <li>9, 10, 11 → <em>"Autumn"</em></li>
-      </ul>
+      <h3>Task 5 — Season Detector ⭐</h3>
+      <p>Ask the user to enter a month number (1–12). Print the season:
+      12, 1, 2 → Winter | 3, 4, 5 → Spring | 6, 7, 8 → Summer | 9, 10, 11 → Autumn.</p>
     </div>
-  </div>
 
+  </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>

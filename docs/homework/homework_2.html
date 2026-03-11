@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework 2: If-Else — Python Lessons</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="../index.html">🐍 Python Lessons</a>
+  <span class="sep">|</span>
+  <div class="dropdown">
+    <span class="dropdown-toggle">📖 Lectures ▾</span>
+    <div class="dropdown-menu">
+      <a href="../lectures/lecture_1.html">Lecture 1: Variables &amp; Data Types</a>
+      <a href="../lectures/lecture_2.html">Lecture 2: If-Else Conditions</a>
+      <a href="../lectures/lecture_3.html">Lecture 3: Cycles (Loops)</a>
+    </div>
+  </div>
+  <span class="sep">|</span>
+  <a href="../resources.html">📚 Resources</a>
+  <span class="sep">|</span>
+  <div class="dropdown">
+    <span class="dropdown-toggle">✏️ Homework ▾</span>
+    <div class="dropdown-menu">
+      <a href="homework_1.html">Homework 1: Variables &amp; Types</a>
+      <a href="homework_2.html" class="active">Homework 2: If-Else</a>
+      <a href="homework_3.html">Homework 3: Cycles</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h1>✏️ Homework 2: If-Else Conditions</h1>
+  <p>Complete all tasks below. Write your code in a file called <code>homework_2.py</code> and run it to check your answers.</p>
+
+  <div class="tip">
+    <strong>💡 Quick reminder:</strong>
+    Use <code>if / elif / else</code> for decisions.
+    Combine conditions with <code>and</code>, <code>or</code>, <code>not</code>.
+    Compare values with <code>== != &lt; &gt; &lt;= &gt;=</code>.
+  </div>
+
+  <div class="tasks">
+    <h2>🎯 Tasks</h2>
+
+    <div class="task">
+      <h3>Task 1 — BMI Calculator</h3>
+      <p>Ask for weight (kg) and height (m). Calculate BMI = weight / height².
+      Print the category: &lt;18.5 → Underweight | 18.5–24.9 → Normal | 25–29.9 → Overweight | ≥30 → Obese.</p>
+      <details class="hint">
+        <summary>💡 Hint 1</summary>
+        <div class="hint-body">Use <code>float(input(...))</code> for both weight and height since they may be decimals.</div>
+      </details>
+      <details class="hint">
+        <summary>💡 Hint 2</summary>
+        <div class="hint-body">Height squared: <code>height ** 2</code> or <code>height * height</code>.
+        So BMI = <code>weight / height ** 2</code>.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 2 — Cinema Ticket Price</h3>
+      <p>A cinema charges: under 5 → free | 5–12 → 50 UAH | 13–17 → 80 UAH | 18–64 → 120 UAH | 65+ → 60 UAH.
+      Ask for the user's age and print how much they pay.</p>
+      <details class="hint">
+        <summary>💡 Hint</summary>
+        <div class="hint-body">Use <code>if / elif / elif / elif / else</code> — one branch per age group.
+        Check age ranges with <code>age &lt; 5</code>, <code>age &lt;= 12</code>, etc.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 3 — Rock, Paper, Scissors</h3>
+      <p>Ask two players to enter their choice: <em>"rock"</em>, <em>"paper"</em>, or <em>"scissors"</em>.
+      Print who wins or if it is a draw.</p>
+      <details class="hint">
+        <summary>💡 Hint 1</summary>
+        <div class="hint-body">Check the draw case first: <code>if p1 == p2: print("Draw!")</code>.
+        Then handle the winning combinations for Player 1.</div>
+      </details>
+      <details class="hint">
+        <summary>💡 Hint 2</summary>
+        <div class="hint-body">There are exactly 3 ways Player 1 wins: rock beats scissors,
+        scissors beats paper, paper beats rock. Use <code>or</code> to combine them into one condition.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 4 — Traffic Light</h3>
+      <p>Ask for a traffic light color: <em>"red"</em>, <em>"yellow"</em>, or <em>"green"</em>.
+      Print the driver instruction. Print <em>"Unknown signal."</em> for anything else.</p>
+      <details class="hint">
+        <summary>💡 Hint</summary>
+        <div class="hint-body">Compare strings directly: <code>if color == "red"</code>.
+        Use <code>color.lower()</code> first so it works for both "Red" and "red".</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 5 — Password Checker ⭐</h3>
+      <p>Ask the user to create a password. Check and print feedback for each rule:</p>
+      <ul>
+        <li>At least 8 characters long</li>
+        <li>Contains at least one digit</li>
+        <li>Contains at least one uppercase letter</li>
+      </ul>
+      <p>If all pass → <em>"Strong password! ✅"</em>. Otherwise list what needs fixing.</p>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>
