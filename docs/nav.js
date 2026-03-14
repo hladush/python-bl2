@@ -27,6 +27,7 @@
           link('lectures/lecture_1.html', 'Lecture 1: Variables &amp; Data Types') +
           link('lectures/lecture_2.html', 'Lecture 2: If-Else Conditions') +
           link('lectures/lecture_3.html', 'Lecture 3: Cycles (Loops)') +
+          link('lectures/lecture_4.html', 'Lecture 4: Functions') +
         '</div>' +
       '</div>' +
       '<span class="sep">|</span>' +
@@ -37,6 +38,7 @@
           link('homework/homework_2.html', 'Homework 2: If-Else') +
           link('homework/homework_3.html', 'Homework 3: Cycles') +
           link('homework/homework_4.html', 'Homework 4: Build &amp; Deploy') +
+          link('homework/homework_5.html', 'Homework 5: Functions') +
         '</div>' +
       '</div>' +
       '<span class="sep">|</span>' +

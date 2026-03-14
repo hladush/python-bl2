@@ -1,0 +1,507 @@
+{
+  "course": "Python Lessons for Kids (ages 10-14)",
+  "description": "A 12-lecture course teaching Python and software engineering fundamentals to kids. Each lecture includes a SE angle — a real software engineering concept tied to the Python topic.",
+  "lectures": [
+    {
+      "n": 1,
+      "status": "done",
+      "title": "Variables & Data Types",
+      "nav_label": "Lecture 1: Variables &amp; Data Types",
+      "emoji": "📦"
+    },
+    {
+      "n": 2,
+      "status": "done",
+      "title": "If-Else Conditions",
+      "nav_label": "Lecture 2: If-Else Conditions",
+      "emoji": "🔀"
+    },
+    {
+      "n": 3,
+      "status": "done",
+      "title": "Cycles (Loops)",
+      "nav_label": "Lecture 3: Cycles (Loops)",
+      "emoji": "🔁"
+    },
+    {
+      "n": 4,
+      "status": "done",
+      "title": "Functions",
+      "nav_label": "Lecture 4: Functions",
+      "emoji": "🧩",
+      "page_title": "Lecture 4: Functions — Python Lessons",
+      "h1": "🧩 Lecture 4: Functions",
+      "intro": "A <strong>function</strong> is a reusable block of code you give a name to. Instead of writing the same steps over and over, you write them once inside a function and call it whenever you need it.",
+      "se_angle": "DRY principle — Don't Repeat Yourself. Functions are the first tool programmers use to avoid copy-pasting code. Every time you find yourself writing the same lines twice, that's a signal to extract a function.",
+      "sections": [
+        {
+          "num": 1,
+          "heading": "Defining and Calling a Function",
+          "concept": "def keyword, function name, colon, indented body, calling with ()",
+          "example": "def greet():\n    print('Hello!')\n    print('Nice to meet you.')\n\n# Call the function — runs everything inside\ngreet()   # Hello! / Nice to meet you.\ngreet()   # called again — same output, no copy-paste!",
+          "has_tip": true,
+          "tip_text": "The <code>def</code> line only <em>defines</em> the function — it doesn't run it yet. The code inside only runs when you <strong>call</strong> the function by writing its name followed by <code>()</code>."
+        },
+        {
+          "num": 2,
+          "heading": "Parameters and Arguments",
+          "concept": "passing values into a function via parameters",
+          "example": "def greet(name):          # 'name' is a parameter\n    print(f'Hello, {name}!')\n\ngreet('Alice')            # 'Alice' is the argument\ngreet('Bob')\n# Hello, Alice!\n# Hello, Bob!\n\ndef add(a, b):             # two parameters\n    print(a + b)\n\nadd(3, 5)                 # 8\nadd(10, 20)               # 30",
+          "has_tip": false
+        },
+        {
+          "num": 3,
+          "heading": "Return Values",
+          "concept": "return keyword, storing the result in a variable",
+          "example": "def add(a, b):\n    return a + b       # sends the result back to the caller\n\nresult = add(3, 5)    # store the returned value\nprint(result)         # 8\nprint(add(10, 20))    # 30 — use directly in print\n\n# Without return, a function gives back None\ndef say_hi():\n    print('Hi!')\n\nvalue = say_hi()       # Hi! is printed\nprint(value)           # None",
+          "has_tip": true,
+          "tip_text": "A function with <code>return</code> gives back a value you can store or use in calculations. A function <em>without</em> <code>return</code> gives back <code>None</code> — useful for functions that just print or do something, not compute something."
+        },
+        {
+          "num": 4,
+          "heading": "Default Parameter Values",
+          "concept": "default values make parameters optional",
+          "example": "def greet(name='friend'):   # 'friend' is the default\n    print(f'Hello, {name}!')\n\ngreet()            # Hello, friend!  (default used)\ngreet('Alice')     # Hello, Alice!   (default overridden)\n\ndef power(base, exp=2):     # exp defaults to 2\n    return base ** exp\n\nprint(power(3))     # 9  — 3 squared\nprint(power(3, 3))  # 27 — 3 cubed",
+          "has_tip": false
+        },
+        {
+          "num": 5,
+          "heading": "Variable Scope: Local vs Global",
+          "concept": "local scope — variables inside a function are invisible outside",
+          "example": "def calculate():\n    result = 42        # local variable — only exists inside\n    print(result)      # 42 — works fine here\n\ncalculate()\n# print(result)     # ERROR! result is not defined here\n\n# Global variables (defined outside) are readable inside\npi = 3.14\n\ndef circle_area(r):\n    return pi * r * r  # pi is global, we can read it\n\nprint(circle_area(5))  # 78.5",
+          "has_tip": true,
+          "tip_text": "Variables created <em>inside</em> a function only exist there — you cannot use them outside. This is called <strong>local scope</strong>. It's a feature, not a bug: functions are self-contained so they don't accidentally mess with the rest of your program."
+        }
+      ],
+      "tasks": [
+        {
+          "n": 1,
+          "title": "Hello, Function!",
+          "description": "Write a function called <code>say_hello()</code> that prints <em>\"Hello, World!\"</em>. Call it three times.",
+          "hints": ["Use <code>def say_hello():</code> then indent the body with 4 spaces. Call it with <code>say_hello()</code>."]
+        },
+        {
+          "n": 2,
+          "title": "Greeting with a Name",
+          "description": "Write a function <code>greet(name)</code> that prints <em>\"Hello, [name]! Nice to meet you.\"</em>. Call it with three different names.",
+          "hints": [
+            "Define the function with one parameter: <code>def greet(name):</code>.",
+            "Inside the function use an f-string: <code>print(f\"Hello, {name}! Nice to meet you.\")</code>."
+          ]
+        },
+        {
+          "n": 3,
+          "title": "Calculator Function",
+          "description": "Write a function <code>multiply(a, b)</code> that <em>returns</em> the product of <code>a</code> and <code>b</code>. Print the result of calling it with several different pairs of numbers.",
+          "hints": ["Use <code>return a * b</code> inside the function, then <code>print(multiply(3, 4))</code> outside."]
+        },
+        {
+          "n": 4,
+          "title": "Default Greeting",
+          "description": "Modify <code>greet</code> so the name has a default value of <code>\"friend\"</code>. Calling <code>greet()</code> with no argument should print <em>\"Hello, friend! Nice to meet you.\"</em>.",
+          "hints": [
+            "Set the default in the definition: <code>def greet(name=\"friend\"):</code>.",
+            "Call it both ways: <code>greet()</code> and <code>greet(\"Alice\")</code> to see the difference."
+          ]
+        },
+        {
+          "n": 5,
+          "title": "Temperature Converter ⭐",
+          "description": "Write two functions: <code>celsius_to_fahrenheit(c)</code> and <code>fahrenheit_to_celsius(f)</code>. Ask the user which direction they want to convert, read a temperature, call the right function, and print the result rounded to 1 decimal place.",
+          "hints": []
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "status": "pending",
+      "title": "Lists",
+      "nav_label": "Lecture 5: Lists",
+      "emoji": "📋",
+      "page_title": "Lecture 5: Lists — Python Lessons",
+      "h1": "📋 Lecture 5: Lists",
+      "intro": "A <strong>list</strong> lets you store many values in one variable, in order. You can add, remove, and change items whenever you like.",
+      "se_angle": "Arrays are the most fundamental data structure in software. Understanding lists unlocks almost every real-world program — from storing search results to processing game scores.",
+      "sections": [
+        {
+          "num": 1,
+          "heading": "Creating and Indexing a List",
+          "concept": "square brackets, zero-based index, negative index",
+          "example": "fruits = ['apple', 'banana', 'cherry']\n\nprint(fruits[0])   # apple  — first item (index 0)\nprint(fruits[1])   # banana — second item\nprint(fruits[-1])  # cherry — last item (negative counts from end)\nprint(fruits[-2])  # banana\n\n# Change an item\nfruits[1] = 'mango'\nprint(fruits)  # ['apple', 'mango', 'cherry']",
+          "has_tip": true,
+          "tip_text": "Python lists are <strong>zero-indexed</strong>: the first item is at index <code>0</code>, not <code>1</code>. This is true in almost every programming language — getting used to it now will save confusion later."
+        },
+        {
+          "num": 2,
+          "heading": "Slicing a List",
+          "concept": "list[start:stop], list[:3], list[2:], list[::2]",
+          "example": "numbers = [10, 20, 30, 40, 50]\n\nprint(numbers[1:3])   # [20, 30]  — index 1 up to (not including) 3\nprint(numbers[:3])    # [10, 20, 30] — from start up to index 3\nprint(numbers[2:])    # [30, 40, 50] — from index 2 to end\nprint(numbers[::2])   # [10, 30, 50] — every second item\nprint(numbers[::-1])  # [50, 40, 30, 20, 10] — reversed",
+          "has_tip": false
+        },
+        {
+          "num": 3,
+          "heading": "Common List Methods",
+          "concept": "append, remove, pop, insert, sort, reverse, len",
+          "example": "items = ['cat', 'dog', 'bird']\n\nitems.append('fish')       # add to end\nprint(items)  # ['cat', 'dog', 'bird', 'fish']\n\nitems.insert(1, 'hamster') # insert at index 1\nprint(items)  # ['cat', 'hamster', 'dog', 'bird', 'fish']\n\nitems.remove('dog')        # remove by value\nprint(items)  # ['cat', 'hamster', 'bird', 'fish']\n\nlast = items.pop()         # remove and return last item\nprint(last)   # fish\n\nnumbers = [3, 1, 4, 1, 5]\nnumbers.sort()             # sort in place (ascending)\nprint(numbers)  # [1, 1, 3, 4, 5]\nprint(len(numbers))  # 5",
+          "has_tip": false
+        },
+        {
+          "num": 4,
+          "heading": "Looping Over a List",
+          "concept": "for item in list, enumerate, building a new list with a loop",
+          "example": "scores = [85, 92, 78, 95, 60]\n\n# Simple loop\nfor score in scores:\n    print(score)\n\n# enumerate() gives index and value together\nfor i, score in enumerate(scores):\n    print(f'Student {i+1}: {score}')\n\n# Build a new list using a loop\ndoubled = []\nfor score in scores:\n    doubled.append(score * 2)\nprint(doubled)  # [170, 184, 156, 190, 120]",
+          "has_tip": false
+        },
+        {
+          "num": 5,
+          "heading": "Checking Membership",
+          "concept": "in operator, not in, counting with count()",
+          "example": "colors = ['red', 'green', 'blue']\n\nif 'red' in colors:\n    print('Red is in the list!')   # prints\n\nif 'yellow' not in colors:\n    print('Yellow is missing.')    # prints\n\n# count() — how many times does a value appear?\nnumbers = [1, 2, 2, 3, 2, 4]\nprint(numbers.count(2))  # 3",
+          "has_tip": true,
+          "tip_text": "Use <code>if item in my_list</code> to check whether a value exists — no loop needed. It's fast to write and easy to read, which is exactly what good code looks like."
+        }
+      ],
+      "tasks": [
+        {
+          "n": 1,
+          "title": "My Playlist",
+          "description": "Create a list of 5 song names. Print the first song, the last song, and the middle song using indexing. Then print the total number of songs.",
+          "hints": ["The first item is <code>my_list[0]</code>. The last is <code>my_list[-1]</code>. The middle of a 5-item list is index <code>2</code>."]
+        },
+        {
+          "n": 2,
+          "title": "Shopping List Manager",
+          "description": "Start with a list of 3 items. Use <code>append()</code> to add two more, <code>remove()</code> to delete one, then print the final list and its length.",
+          "hints": [
+            "<code>my_list.append('milk')</code> adds to the end. <code>my_list.remove('bread')</code> deletes by value.",
+            "Use <code>len(my_list)</code> to get the count of items after all changes."
+          ]
+        },
+        {
+          "n": 3,
+          "title": "Sorted Scores",
+          "description": "Create a list of 6 exam scores (numbers). Print them sorted from lowest to highest and then highest to lowest.",
+          "hints": ["<code>my_list.sort()</code> sorts in place ascending. <code>my_list.sort(reverse=True)</code> sorts descending. Be careful — <code>sort()</code> modifies the original list!"]
+        },
+        {
+          "n": 4,
+          "title": "Find the Maximum",
+          "description": "Without using Python's built-in <code>max()</code>, write a loop that finds the largest number in a list of 7 numbers you define. Print the result.",
+          "hints": [
+            "Start with <code>biggest = my_list[0]</code>. Then loop through all items — if an item is greater than <code>biggest</code>, update <code>biggest</code>.",
+            "You already know <code>if</code> and <code>for</code> — combine them: <code>if num > biggest: biggest = num</code>."
+          ]
+        },
+        {
+          "n": 5,
+          "title": "Word Filter ⭐",
+          "description": "Ask the user to enter 5 words one at a time (use a loop and <code>append()</code> to build the list). Then print only the words that are longer than 4 characters, each on its own line.",
+          "hints": []
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "status": "pending",
+      "title": "Dictionaries",
+      "nav_label": "Lecture 6: Dictionaries",
+      "emoji": "📖",
+      "page_title": "Lecture 6: Dictionaries — Python Lessons",
+      "h1": "📖 Lecture 6: Dictionaries",
+      "intro": "A <strong>dictionary</strong> stores data as <strong>key-value pairs</strong> — like a real dictionary where every word (key) has a definition (value). Keys must be unique; values can be anything.",
+      "se_angle": "Key-value stores are everywhere in software: JSON configs, databases, HTTP headers, caches. Dictionaries are your first taste of structured data — the foundation of almost every real-world data model.",
+      "sections": [
+        {
+          "num": 1,
+          "heading": "Creating a Dictionary",
+          "concept": "curly braces, key: value pairs, accessing by key",
+          "example": "# Create a dictionary\nperson = {\n    'name': 'Alice',\n    'age': 12,\n    'city': 'Kyiv'\n}\n\n# Access values by key\nprint(person['name'])   # Alice\nprint(person['age'])    # 12\n\n# Add a new key\nperson['hobby'] = 'coding'\nprint(person)  # {'name': 'Alice', 'age': 12, 'city': 'Kyiv', 'hobby': 'coding'}",
+          "has_tip": false
+        },
+        {
+          "num": 2,
+          "heading": "Safe Access with .get()",
+          "concept": "dict.get(key, default) — no crash if key is missing",
+          "example": "scores = {'Alice': 95, 'Bob': 87}\n\n# dict[key] crashes if key doesn't exist\n# print(scores['Charlie'])  # KeyError!\n\n# .get() returns None (or your default) instead\nprint(scores.get('Alice'))          # 95\nprint(scores.get('Charlie'))        # None — no crash\nprint(scores.get('Charlie', 0))     # 0   — custom default",
+          "has_tip": true,
+          "tip_text": "Use <code>dict.get(key)</code> instead of <code>dict[key]</code> when the key might not exist — it returns <code>None</code> instead of crashing your program. In real applications, missing keys are common and must be handled gracefully."
+        },
+        {
+          "num": 3,
+          "heading": "Updating and Removing",
+          "concept": "dict[key] = new_value, del dict[key], dict.pop(key)",
+          "example": "student = {'name': 'Bob', 'grade': 7, 'score': 80}\n\n# Update an existing value\nstudent['score'] = 95\nprint(student['score'])  # 95\n\n# Delete a key\ndel student['grade']\nprint(student)  # {'name': 'Bob', 'score': 95}\n\n# pop() removes and returns the value\nremoved = student.pop('score')\nprint(removed)  # 95\nprint(student)  # {'name': 'Bob'}",
+          "has_tip": false
+        },
+        {
+          "num": 4,
+          "heading": "Looping Over a Dictionary",
+          "concept": ".keys(), .values(), .items() with for k, v in",
+          "example": "prices = {'apple': 1.2, 'banana': 0.5, 'cherry': 3.0}\n\n# Loop over keys\nfor fruit in prices.keys():\n    print(fruit)           # apple  banana  cherry\n\n# Loop over values\nfor price in prices.values():\n    print(price)           # 1.2  0.5  3.0\n\n# Loop over key-value pairs (most useful!)\nfor fruit, price in prices.items():\n    print(f'{fruit}: ${price:.2f}')\n# apple: $1.20\n# banana: $0.50\n# cherry: $3.00",
+          "has_tip": false
+        },
+        {
+          "num": 5,
+          "heading": "Nested Dictionaries",
+          "concept": "a dict whose values are dicts, accessing nested keys",
+          "example": "# Each contact is itself a dictionary\ncontacts = {\n    'Alice': {'phone': '123-456', 'city': 'Kyiv'},\n    'Bob':   {'phone': '789-012', 'city': 'Lviv'}\n}\n\n# Access nested values with two keys\nprint(contacts['Alice']['phone'])  # 123-456\nprint(contacts['Bob']['city'])     # Lviv\n\n# Loop over nested dict\nfor name, info in contacts.items():\n    print(f'{name} — {info[\"city\"]}, {info[\"phone\"]}')",
+          "has_tip": true,
+          "tip_text": "Nested dicts model real-world objects naturally: a <code>person</code> dict can have an <code>\"address\"</code> key whose value is another dict with <code>\"city\"</code> and <code>\"street\"</code>. This is exactly the structure you'll see in JSON data from APIs."
+        }
+      ],
+      "tasks": [
+        {
+          "n": 1,
+          "title": "My Profile",
+          "description": "Create a dictionary with keys <code>\"name\"</code>, <code>\"age\"</code>, <code>\"city\"</code>, and <code>\"hobby\"</code>. Print each key and value on its own line using a loop.",
+          "hints": ["Loop over the dict with <code>for key, value in my_dict.items():</code> and print both in an f-string."]
+        },
+        {
+          "n": 2,
+          "title": "Word Counter",
+          "description": "Given the list <code>[\"apple\", \"banana\", \"apple\", \"cherry\", \"banana\", \"apple\"]</code>, build a dictionary that counts how many times each word appears. Print the result.",
+          "hints": [
+            "For each word, check if it's already in the dict. If yes, add 1; if no, set it to 1.",
+            "Use <code>counts.get(word, 0) + 1</code> to get the current count (defaulting to 0) and add 1 in one step."
+          ]
+        },
+        {
+          "n": 3,
+          "title": "Phonebook",
+          "description": "Create a phonebook dict with 3 name-to-number entries. Ask the user to enter a name; print their number or <em>\"Not found\"</em> if the name is missing.",
+          "hints": ["<code>phonebook.get(name, 'Not found')</code> returns the value or <code>'Not found'</code> in one step — no <code>if</code> needed."]
+        },
+        {
+          "n": 4,
+          "title": "Update the Scores",
+          "description": "Start with a dict of 4 students and their scores. Ask the user for a student name and a new score; update the dict and print all scores sorted by name.",
+          "hints": [
+            "Check if the name exists with <code>if name in scores</code> before updating. Print a message if not found.",
+            "To print sorted by key: <code>for k in sorted(scores):</code> iterates alphabetically."
+          ]
+        },
+        {
+          "n": 5,
+          "title": "Nested Contact Book ⭐",
+          "description": "Build a dict of 3 contacts where each value is itself a dict with keys <code>\"phone\"</code> and <code>\"email\"</code>. Ask the user for a name and print that contact's full info. Handle the case where the name is not found.",
+          "hints": []
+        }
+      ]
+    },
+    {
+      "n": 7,
+      "status": "pending",
+      "title": "Strings In Depth",
+      "nav_label": "Lecture 7: Strings In Depth",
+      "emoji": "🔤",
+      "page_title": "Lecture 7: Strings In Depth — Python Lessons",
+      "h1": "🔤 Lecture 7: Strings In Depth",
+      "intro": "You have used strings since Lecture 1. Now we go deeper: slicing, searching, splitting, and formatting — tools that real programs use every day to process text.",
+      "se_angle": "String manipulation is used in almost every program: parsing user input, formatting output, reading files, validating data. Mastering it early is one of the highest-leverage skills in programming.",
+      "sections": [
+        {"num": 1, "heading": "Indexing and Slicing Strings", "concept": "s[i], s[start:stop], s[::-1] to reverse — strings work like read-only lists", "has_tip": false},
+        {"num": 2, "heading": "Useful String Methods", "concept": "strip, split, join, replace, find, startswith, endswith, count", "has_tip": false},
+        {"num": 3, "heading": "Checking String Contents", "concept": "isdigit(), isalpha(), isalnum(), isupper(), islower()", "has_tip": false},
+        {"num": 4, "heading": "Formatting Numbers in Strings", "concept": "f\"{value:.2f}\" for decimals, f\"{value:>10}\" for alignment", "has_tip": false},
+        {"num": 5, "heading": "Multiline Strings and Escape Characters", "concept": "triple quotes, \\n, \\t, raw strings r\"...\"", "has_tip": true, "tip_text": "Use a raw string <code>r\"C:\\Users\\name\"</code> when you need backslashes and don't want them treated as escape characters — very useful for file paths on Windows."}
+      ],
+      "tasks": [
+        {"n": 1, "title": "Reverse a Word", "description": "Ask the user for a word and print it reversed using slicing. Also print whether it's a palindrome (reads the same forwards and backwards).", "hints": ["Reversed string: <code>word[::-1]</code>. A palindrome: <code>word == word[::-1]</code> — compare ignoring case with <code>word.lower()</code>."]},
+        {"n": 2, "title": "CSV Line Parser", "description": "Given the string <code>\"Alice,12,Kyiv,coding\"</code>, split it by comma and print each field on its own line with a label: Name, Age, City, Hobby.", "hints": ["<code>text.split(',')</code> returns a list of parts. Unpack with: <code>name, age, city, hobby = parts</code>."]},
+        {"n": 3, "title": "Input Validator", "description": "Ask the user for their age. Keep asking until they enter something that contains only digits. Then convert it to an integer and print a confirmation message.", "hints": ["Use <code>input_str.isdigit()</code> to check if all characters are digits.", "Put the input inside a <code>while True</code> loop and <code>break</code> when valid."]},
+        {"n": 4, "title": "Format a Receipt", "description": "Given a list of <code>(item, price)</code> tuples (at least 4 items), print a receipt where each item name is left-aligned in 20 characters and the price is right-aligned with 2 decimal places.", "hints": ["Use <code>f'{name:<20}{price:>8.2f}'</code> for aligned columns.", "Create the list like: <code>items = [('Apples', 1.5), ('Bread', 2.3)]</code>. Loop with <code>for name, price in items:</code>."]},
+        {"n": 5, "title": "Password Validator ⭐", "description": "Ask the user for a password. Print whether it passes all rules: at least 8 characters, contains at least one digit, one uppercase letter, and one lowercase letter. For each failed rule, print a specific message.", "hints": []}
+      ]
+    },
+    {
+      "n": 8,
+      "status": "pending",
+      "title": "Files",
+      "nav_label": "Lecture 8: Files",
+      "emoji": "💾",
+      "page_title": "Lecture 8: Files — Python Lessons",
+      "h1": "💾 Lecture 8: Files",
+      "intro": "Programs often need to <strong>save data</strong> between runs or <strong>read data</strong> created by another program. In this lecture you will learn how to open, read, write, and close files in Python.",
+      "se_angle": "Persistence is a core software concept. Understanding file I/O is the gateway to databases, config files, and data processing pipelines. The patterns you learn here apply to every language.",
+      "sections": [
+        {"num": 1, "heading": "Opening Files with the with Statement", "concept": "open(), the with statement (context manager), modes 'r' 'w' 'a'", "has_tip": true, "tip_text": "Always use <code>with open(...):</code> — it automatically closes the file even if an error occurs inside the block. This prevents data loss and resource leaks."},
+        {"num": 2, "heading": "Reading a File", "concept": "read(), readlines(), iterating line by line with for", "has_tip": false},
+        {"num": 3, "heading": "Writing to a File", "concept": "write mode 'w' overwrites, append mode 'a' adds to end, writelines()", "has_tip": false},
+        {"num": 4, "heading": "Working with CSV Data", "concept": "splitting lines by comma, building a list of dicts from rows", "has_tip": false},
+        {"num": 5, "heading": "Handling File Errors", "concept": "try/except FileNotFoundError, os.path.exists()", "has_tip": false}
+      ],
+      "tasks": [
+        {"n": 1, "title": "Note Saver", "description": "Ask the user to type a note. Save it to <code>note.txt</code>. Then read it back and print it.", "hints": ["<code>with open('note.txt', 'w') as f: f.write(text)</code> to write. <code>with open('note.txt', 'r') as f: print(f.read())</code> to read."]},
+        {"n": 2, "title": "Line Counter", "description": "Ask the user for a filename. Try to open and count its lines. If the file doesn't exist, print a friendly error instead of crashing.", "hints": ["<code>lines = f.readlines()</code> returns a list of lines. <code>len(lines)</code> is the count.", "Wrap the open() in a try/except FileNotFoundError."]},
+        {"n": 3, "title": "Diary", "description": "Each time the program runs, ask the user for a diary entry. Append it to <code>diary.txt</code> with today's date. At the end, read and print all entries.", "hints": ["Use mode <code>'a'</code> (append) so previous entries are not deleted.", "Import <code>datetime</code>: <code>from datetime import date</code>. Get today: <code>date.today()</code>."]},
+        {"n": 4, "title": "CSV Reader", "description": "Create a text file <code>students.csv</code> with 3 lines in the format <code>name,age,city</code>. Read it in your program and print each row as a formatted sentence.", "hints": ["<code>line.strip().split(',')</code> removes the newline and splits by comma.", "Unpack with: <code>name, age, city = line.strip().split(',')</code>."]},
+        {"n": 5, "title": "Word Frequency ⭐", "description": "Ask the user for a filename. Read it, split into words, and count how many times each word appears (case-insensitive). Print the top 5 most frequent words and their counts.", "hints": []}
+      ]
+    },
+    {
+      "n": 9,
+      "status": "pending",
+      "title": "Error Handling",
+      "nav_label": "Lecture 9: Error Handling",
+      "emoji": "🛡️",
+      "page_title": "Lecture 9: Error Handling — Python Lessons",
+      "h1": "🛡️ Lecture 9: Error Handling",
+      "intro": "Programs crash when something unexpected happens — the user types a letter instead of a number, a file is missing, or you divide by zero. <strong>Error handling</strong> lets you catch those problems and respond gracefully instead of crashing.",
+      "se_angle": "Defensive programming and graceful degradation. Real software always handles failure paths — this is what separates a toy script from production code. Unhandled exceptions are one of the most common causes of bugs reported by users.",
+      "sections": [
+        {"num": 1, "heading": "What is an Exception?", "concept": "runtime errors vs syntax errors, the traceback, common built-in exceptions", "has_tip": false},
+        {"num": 2, "heading": "try / except", "concept": "catching a specific exception type, else clause runs if no exception", "has_tip": false},
+        {"num": 3, "heading": "Multiple except Clauses", "concept": "ValueError, ZeroDivisionError, FileNotFoundError, catching multiple types", "has_tip": false},
+        {"num": 4, "heading": "finally", "concept": "finally always runs whether or not an exception occurred — for cleanup", "has_tip": true, "tip_text": "Use <code>finally</code> for cleanup code that must always run: closing a file, printing a summary, resetting a state. It runs even when an exception is not caught."},
+        {"num": 5, "heading": "Raising Your Own Exceptions", "concept": "raise ValueError('message'), when and why to raise explicitly", "has_tip": false}
+      ],
+      "tasks": [
+        {"n": 1, "title": "Safe Division", "description": "Ask the user for two numbers. Divide them and print the result. Catch <code>ZeroDivisionError</code> and <code>ValueError</code> (non-numeric input) separately, printing a helpful message for each.", "hints": ["Two separate <code>except</code> clauses: <code>except ZeroDivisionError:</code> and <code>except ValueError:</code>.", "The conversion <code>int(input(...))</code> raises <code>ValueError</code> if the user types letters."]},
+        {"n": 2, "title": "Safe File Reader", "description": "Ask the user for a filename. Try to open and print it. If it doesn't exist, print <em>\"Sorry, that file was not found.\"</em> instead of crashing.", "hints": ["Use <code>except FileNotFoundError:</code> to catch missing files."]},
+        {"n": 3, "title": "Retry Loop", "description": "Ask the user for a positive integer. Keep asking until they enter a valid one (use a <code>while True</code> loop + try/except). Then print the number doubled.", "hints": ["Inside the loop: try to convert input to int. If it succeeds, check <code>n > 0</code> and break. If ValueError, print a message and loop again.", "Only <code>break</code> out of the loop after you've confirmed the input is a valid positive integer."]},
+        {"n": 4, "title": "Validate Age", "description": "Write a function <code>validate_age(age)</code> that raises a <code>ValueError</code> with a descriptive message if age is negative or over 150. Call it inside a try/except and print the error message if it raises.", "hints": ["<code>raise ValueError('Age cannot be negative')</code> inside the function.", "Catch it with <code>except ValueError as e: print(e)</code> — <code>e</code> is the error message."]},
+        {"n": 5, "title": "Safe Calculator ⭐", "description": "Build a 4-operation calculator (+, -, *, /). Ask the user for two numbers and an operator. Handle every possible error: non-numeric input, division by zero, unknown operator. Print a specific message for each problem.", "hints": []}
+      ]
+    },
+    {
+      "n": 10,
+      "status": "pending",
+      "title": "Modules & the Standard Library",
+      "nav_label": "Lecture 10: Modules &amp; Standard Library",
+      "emoji": "📦",
+      "page_title": "Lecture 10: Modules & the Standard Library — Python Lessons",
+      "h1": "📦 Lecture 10: Modules &amp; the Standard Library",
+      "intro": "Python comes with hundreds of built-in modules — ready-made code you can import and use. You don't have to write everything from scratch.",
+      "se_angle": "Standing on the shoulders of giants. Using the standard library is a core engineering skill: avoid reinventing the wheel, read documentation, compose existing tools. This mindset is how professional developers stay productive.",
+      "sections": [
+        {"num": 1, "heading": "import and from … import", "concept": "import math, from random import randint, aliasing with as", "has_tip": false},
+        {"num": 2, "heading": "The math Module", "concept": "math.sqrt, math.pi, math.floor, math.ceil, math.pow", "has_tip": false},
+        {"num": 3, "heading": "The random Module", "concept": "random.randint, random.choice, random.shuffle, random.random", "has_tip": false},
+        {"num": 4, "heading": "The datetime Module", "concept": "date.today(), strftime formatting, timedelta for date arithmetic", "has_tip": false},
+        {"num": 5, "heading": "Writing Your Own Module", "concept": "any .py file is a module, import it, if __name__ == '__main__'", "has_tip": true, "tip_text": "Any Python file is a module. When you put reusable functions in their own file and import them, you are doing exactly what professional developers do every day. This is how large programs are organized into manageable pieces."}
+      ],
+      "tasks": [
+        {"n": 1, "title": "Circle Calculator", "description": "Ask the user for a radius. Use <code>math.pi</code> to calculate and print the area and circumference, each rounded to 2 decimal places.", "hints": ["Area = π × r². Circumference = 2 × π × r. Use <code>round(value, 2)</code> or <code>f'{value:.2f}'</code>."]},
+        {"n": 2, "title": "Lucky Number", "description": "Use <code>random.randint(1, 100)</code> to generate a secret number. Let the user guess it with a <code>while</code> loop, printing <em>\"Too high\"</em>, <em>\"Too low\"</em>, or <em>\"Correct!\"</em> after each guess. Count the guesses.", "hints": ["From Lecture 3 you know the guessing loop pattern. Now replace the hardcoded secret with <code>random.randint(1, 100)</code>."]},
+        {"n": 3, "title": "Days Until Birthday", "description": "Ask the user for their birth day and month (as numbers). Use <code>datetime</code> to calculate how many days until their next birthday and print the result.", "hints": ["<code>from datetime import date</code>. Get today with <code>date.today()</code>. Build the birthday date with <code>date(year, month, day)</code>. Subtract dates to get a <code>timedelta</code>; use <code>.days</code> to get the number."]},
+        {"n": 4, "title": "Shuffle a List", "description": "Create a list of 8 items (e.g., student names). Use <code>random.shuffle()</code> to randomize the order, then print the shuffled list. Repeat 3 times to show it's different each time.", "hints": ["<code>random.shuffle(my_list)</code> modifies the list in place — no need to assign the result."]},
+        {"n": 5, "title": "My Utils Module ⭐", "description": "Create a file <code>my_utils.py</code> with at least 3 useful functions (e.g. <code>clamp(value, lo, hi)</code>, <code>is_palindrome(s)</code>, <code>celsius_to_fahrenheit(c)</code>). In a separate <code>main.py</code>, import and test each function.", "hints": []}
+      ]
+    },
+    {
+      "n": 11,
+      "status": "pending",
+      "title": "Classes & Objects",
+      "nav_label": "Lecture 11: Classes &amp; Objects",
+      "emoji": "🏗️",
+      "page_title": "Lecture 11: Classes & Objects — Python Lessons",
+      "h1": "🏗️ Lecture 11: Classes &amp; Objects",
+      "intro": "So far you have used functions to organize code. <strong>Classes</strong> let you bundle data and behaviour together into a blueprint. An <strong>object</strong> is one instance created from that blueprint.",
+      "se_angle": "Object-Oriented Programming is the dominant paradigm for large codebases. Understanding classes, encapsulation, and methods is essential for reading and writing professional Python. Every library you will ever use is built with classes.",
+      "sections": [
+        {"num": 1, "heading": "Defining a Class and __init__", "concept": "class keyword, __init__ constructor, self, instance attributes", "has_tip": true, "tip_text": "<code>self</code> refers to the specific object being created or used. It is always the first parameter of any method, but you never pass it manually — Python passes it automatically."},
+        {"num": 2, "heading": "Instance Methods", "concept": "defining methods, calling them on an object, self.attribute inside methods", "has_tip": false},
+        {"num": 3, "heading": "The __str__ Method", "concept": "__str__ for human-readable representation, what print(obj) shows", "has_tip": false},
+        {"num": 4, "heading": "Creating Multiple Objects", "concept": "each instance has its own attributes, list of objects, calling methods in a loop", "has_tip": false},
+        {"num": 5, "heading": "Inheritance", "concept": "class Dog(Animal), super().__init__(), overriding methods, polymorphism preview", "has_tip": true, "tip_text": "Inheritance means a child class gets all the methods of its parent for free, and can override or add new ones. This avoids duplicating code across similar classes — the DRY principle you learned in Lecture 4, applied to classes."}
+      ],
+      "tasks": [
+        {"n": 1, "title": "Student Class", "description": "Define a class <code>Student</code> with attributes <code>name</code> and <code>grade</code>. Add a method <code>introduce()</code> that prints a sentence like <em>\"Hi, I'm Alice and I'm in grade 7.\"</em>. Create 3 Student objects and call <code>introduce()</code> on each.", "hints": ["In <code>__init__</code>: <code>self.name = name</code> and <code>self.grade = grade</code>.", "In <code>introduce()</code>: use <code>self.name</code> and <code>self.grade</code> in an f-string."]},
+        {"n": 2, "title": "Rectangle Class", "description": "Define a class <code>Rectangle</code> with <code>width</code> and <code>height</code>. Add methods <code>area()</code> and <code>perimeter()</code>. Add <code>__str__</code> so <code>print(r)</code> shows something like <em>\"Rectangle 4×6\"</em>.", "hints": ["<code>def area(self): return self.width * self.height</code>.", "<code>def __str__(self): return f'Rectangle {self.width}×{self.height}'</code>."]},
+        {"n": 3, "title": "Bank Account", "description": "Define a class <code>BankAccount</code> with a <code>balance</code> attribute (starting at 0) and methods <code>deposit(amount)</code> and <code>withdraw(amount)</code>. Withdraw should print an error if there are not enough funds. Print the balance after each operation.", "hints": ["In <code>withdraw</code>: <code>if amount > self.balance: print('Not enough funds!')</code> else subtract.", "Start with <code>self.balance = 0</code> in <code>__init__</code>. Each deposit/withdraw updates it."]},
+        {"n": 4, "title": "List of Objects", "description": "Create a list of 5 <code>Student</code> objects. Write a function <code>top_student(students)</code> that takes the list and returns the student with the highest grade. Print their name.", "hints": ["Loop through the list keeping track of the student with the highest grade — similar to the max-finding loop from Lecture 5.", "Access an object's attribute: <code>student.grade</code>."]},
+        {"n": 5, "title": "Animal Hierarchy ⭐", "description": "Create a base class <code>Animal</code> with attributes <code>name</code> and a method <code>speak()</code> that prints <em>\"[name] says ...\"</em>. Create subclasses <code>Dog</code> and <code>Cat</code> that override <code>speak()</code> with the correct sound. Create a mixed list of animals and call <code>speak()</code> on each.", "hints": []}
+      ]
+    },
+    {
+      "n": 12,
+      "status": "pending",
+      "title": "Final Project",
+      "nav_label": "Lecture 12: Final Project",
+      "emoji": "🚀",
+      "page_title": "Lecture 12: Final Project — Python Lessons",
+      "h1": "🚀 Lecture 12: Final Project",
+      "intro": "You have learned variables, conditions, loops, functions, lists, dictionaries, strings, files, error handling, modules, and classes. Now it's time to put it all together in a real project.",
+      "se_angle": "Software projects require planning, incremental implementation, and testing. We introduce the concept of a project spec, milestones, and iterative development — the skills that distinguish a programmer from a software engineer.",
+      "sections": [
+        {"num": 1, "heading": "What Makes a Good Project?", "concept": "clear goal, defined inputs/outputs, broken into functions and maybe classes", "has_tip": false},
+        {"num": 2, "heading": "Project Ideas", "concept": "contact book CLI, quiz game, text adventure, budget tracker, password manager", "has_tip": false},
+        {"num": 3, "heading": "Writing a Project Spec", "concept": "what it does, what data it stores, what functions it needs, what errors to handle", "has_tip": false},
+        {"num": 4, "heading": "Incremental Development", "concept": "start small, add features one at a time, test each part before moving on", "has_tip": false},
+        {"num": 5, "heading": "Code Review Checklist", "concept": "readable names, no repeated code, handles errors, has comments on tricky parts", "has_tip": true, "tip_text": "Before calling a project done, read your own code as if you're seeing it for the first time. Would a classmate understand it? Good code communicates <em>intent</em>, not just instructions to the computer."}
+      ],
+      "tasks": [
+        {"n": 1, "title": "Choose and Spec Your Project", "description": "Write a plain-text spec for your project: what it does, what data it uses, what the user can do (menu options), and at least 5 functions it will need.", "hints": ["Think about a program you would actually want to use. A contact book, a quiz, a shopping list, a game score tracker.", "Your spec doesn't have to be perfect — write it, then refine it as you build."]},
+        {"n": 2, "title": "Build the Data Layer", "description": "Implement the data structures your project needs (lists, dicts, or classes) and write functions to add, remove, and find items. Test each function with a few <code>print</code> calls.", "hints": ["Start with just one operation (e.g., add a contact). Get it working before adding more.", "Use a list of dicts or a list of objects — whichever matches your project better."]},
+        {"n": 3, "title": "Build the Menu Loop", "description": "Implement a <code>while True</code> menu loop that shows options and calls the right function for each. Include a <em>\"Quit\"</em> option that breaks the loop.", "hints": ["Print numbered options, read the user's choice, use <code>if/elif</code> to dispatch.", "Wrap each option's logic in its own function so the menu loop stays short and readable."]},
+        {"n": 4, "title": "Add File Persistence", "description": "Save your data to a file when the user quits and load it when the program starts. Use a simple text or CSV format.", "hints": ["On startup: if the file exists, read it and rebuild your data structure. If not, start empty.", "On quit: write all current data to the file, one item per line."]},
+        {"n": 5, "title": "Polish and Present ⭐", "description": "Add error handling to every user input. Write a one-line comment above every function explaining what it does. Run through all menu options and fix any bugs. Demo your program to a classmate or family member.", "hints": []}
+      ]
+    }
+  ],
+  "homeworks": [
+    {"n": 1, "status": "done", "title": "Variables & Data Types", "nav_label": "Homework 1: Variables &amp; Data Types"},
+    {"n": 2, "status": "done", "title": "If-Else", "nav_label": "Homework 2: If-Else"},
+    {"n": 3, "status": "done", "title": "Cycles", "nav_label": "Homework 3: Cycles"},
+    {"n": 4, "status": "done", "title": "Build & Deploy", "nav_label": "Homework 4: Build &amp; Deploy"},
+    {
+      "n": 5,
+      "status": "done",
+      "title": "Functions",
+      "nav_label": "Homework 5: Functions",
+      "intro": "Complete all tasks below. Write your code in <code>homework_5.py</code> and run it to check your answers.",
+      "tip": "Functions let you test each piece of your program in isolation. Write one function at a time and test it before moving on — this is how professionals work.",
+      "tasks": [
+        {
+          "n": 1,
+          "title": "Even or Odd Checker",
+          "description": "Write a function <code>is_even(n)</code> that returns <code>True</code> if <code>n</code> is even, <code>False</code> otherwise. Ask the user for 5 numbers using a loop, call the function for each, and print <em>\"[n] is even\"</em> or <em>\"[n] is odd\"</em>.",
+          "hints": [
+            "Use <code>n % 2 == 0</code> to check if a number is even.",
+            "Collect the 5 numbers with <code>for i in range(5)</code> and <code>input()</code> inside."
+          ]
+        },
+        {
+          "n": 2,
+          "title": "FizzBuzz Function",
+          "description": "Write a function <code>fizzbuzz(n)</code> that returns <em>\"Fizz\"</em> if n is divisible by 3, <em>\"Buzz\"</em> if divisible by 5, <em>\"FizzBuzz\"</em> if both, and the number as a string otherwise. Call it for 1–30 and print each result.",
+          "hints": [
+            "Check <code>n % 15 == 0</code> first (catches the both-divisible case), then 3, then 5.",
+            "Return <code>str(n)</code> for the fallthrough case so all branches return a string."
+          ]
+        },
+        {
+          "n": 3,
+          "title": "Mini Statistics",
+          "description": "Write three functions: <code>my_min(lst)</code>, <code>my_max(lst)</code>, and <code>my_average(lst)</code> — each takes a list of numbers. Do <strong>not</strong> use Python's built-in <code>min()</code>, <code>max()</code>, or <code>sum()</code>. Test with two different lists.",
+          "hints": [
+            "For min/max, initialise with the first item: <code>result = lst[0]</code>. Loop through the rest comparing.",
+            "For average: use your own summing loop, then divide by <code>len(lst)</code>."
+          ]
+        },
+        {
+          "n": 4,
+          "title": "Recursive Countdown",
+          "description": "Write a function <code>countdown(n)</code> that prints numbers from <code>n</code> down to 1 and then prints <em>\"Go!\"</em> — using <strong>recursion</strong> (the function calls itself) instead of a loop.",
+          "hints": [
+            "Base case: <code>if n == 0: print('Go!'); return</code>.",
+            "Recursive case: print <code>n</code>, then call <code>countdown(n - 1)</code>."
+          ]
+        },
+        {
+          "n": 5,
+          "title": "Text Analyser ⭐",
+          "description": "Write a function <code>analyze(text)</code> that accepts a string and returns a dictionary with keys: <code>\"words\"</code> (word count), <code>\"chars\"</code> (character count excluding spaces), <code>\"sentences\"</code> (count of <code>.</code> <code>?</code> <code>!</code> characters), and <code>\"longest_word\"</code>. Test it on at least two different strings and print the results.",
+          "hints": []
+        }
+      ]
+    },
+    {"n": 6, "status": "pending", "title": "Lists", "nav_label": "Homework 6: Lists"},
+    {"n": 7, "status": "pending", "title": "Dictionaries", "nav_label": "Homework 7: Dictionaries"},
+    {"n": 8, "status": "pending", "title": "Strings In Depth", "nav_label": "Homework 8: Strings In Depth"},
+    {"n": 9, "status": "pending", "title": "Files", "nav_label": "Homework 9: Files"},
+    {"n": 10, "status": "pending", "title": "Error Handling", "nav_label": "Homework 10: Error Handling"},
+    {"n": 11, "status": "pending", "title": "Modules", "nav_label": "Homework 11: Modules"},
+    {"n": 12, "status": "pending", "title": "Classes & Objects", "nav_label": "Homework 12: Classes &amp; Objects"}
+  ]
+}

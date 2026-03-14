@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 4: Functions — Python Lessons</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+<script src="../nav.js"></script>
+
+<div class="container">
+  <h1>🧩 Lecture 4: Functions</h1>
+  <p>A <strong>function</strong> is a reusable block of code you give a name to. Instead of writing the same steps over and over, you write them once inside a function and call it whenever you need it.</p>
+
+  <div class="tip">
+    <strong>🔧 Software Engineering Angle — DRY Principle</strong><br>
+    DRY stands for <em>Don't Repeat Yourself</em>. Functions are the first tool programmers use to avoid copy-pasting code. Every time you find yourself writing the same lines twice, that's a signal to extract a function.
+  </div>
+
+  <h2>1. Defining and Calling a Function</h2>
+  <pre><code class="language-python">def greet():
+    print('Hello!')
+    print('Nice to meet you.')
+
+# Call the function — runs everything inside
+greet()   # Hello! / Nice to meet you.
+greet()   # called again — same output, no copy-paste!</code></pre>
+
+  <div class="tip">
+    <strong>💡 Tip:</strong> The <code>def</code> line only <em>defines</em> the function — it doesn't run it yet. The code inside only runs when you <strong>call</strong> the function by writing its name followed by <code>()</code>.
+  </div>
+
+  <h2>2. Parameters and Arguments</h2>
+  <pre><code class="language-python">def greet(name):          # 'name' is a parameter
+    print(f'Hello, {name}!')
+
+greet('Alice')            # 'Alice' is the argument
+greet('Bob')
+# Hello, Alice!
+# Hello, Bob!
+
+def add(a, b):             # two parameters
+    print(a + b)
+
+add(3, 5)                 # 8
+add(10, 20)               # 30</code></pre>
+
+  <h2>3. Return Values</h2>
+  <pre><code class="language-python">def add(a, b):
+    return a + b       # sends the result back to the caller
+
+result = add(3, 5)    # store the returned value
+print(result)         # 8
+print(add(10, 20))    # 30 — use directly in print
+
+# Without return, a function gives back None
+def say_hi():
+    print('Hi!')
+
+value = say_hi()       # Hi! is printed
+print(value)           # None</code></pre>
+
+  <div class="tip">
+    <strong>💡 Tip:</strong> A function with <code>return</code> gives back a value you can store or use in calculations. A function <em>without</em> <code>return</code> gives back <code>None</code> — useful for functions that just print or do something, not compute something.
+  </div>
+
+  <h2>4. Default Parameter Values</h2>
+  <pre><code class="language-python">def greet(name='friend'):   # 'friend' is the default
+    print(f'Hello, {name}!')
+
+greet()            # Hello, friend!  (default used)
+greet('Alice')     # Hello, Alice!   (default overridden)
+
+def power(base, exp=2):     # exp defaults to 2
+    return base ** exp
+
+print(power(3))     # 9  — 3 squared
+print(power(3, 3))  # 27 — 3 cubed</code></pre>
+
+  <h2>5. Variable Scope: Local vs Global</h2>
+  <pre><code class="language-python">def calculate():
+    result = 42        # local variable — only exists inside
+    print(result)      # 42 — works fine here
+
+calculate()
+# print(result)     # ERROR! result is not defined here
+
+# Global variables (defined outside) are readable inside
+pi = 3.14
+
+def circle_area(r):
+    return pi * r * r  # pi is global, we can read it
+
+print(circle_area(5))  # 78.5</code></pre>
+
+  <div class="tip">
+    <strong>💡 Tip:</strong> Variables created <em>inside</em> a function only exist there — you cannot use them outside. This is called <strong>local scope</strong>. It's a feature, not a bug: functions are self-contained so they don't accidentally mess with the rest of your program.
+  </div>
+
+  <!-- ── Tasks ── -->
+  <div class="tasks">
+    <h2>🎯 Tasks</h2>
+
+    <div class="task">
+      <h3>Task 1 — Hello, Function!</h3>
+      <p>Write a function called <code>say_hello()</code> that prints <em>"Hello, World!"</em>. Call it three times.</p>
+      <details class="hint">
+        <summary>💡 Hint</summary>
+        <div class="hint-body">Use <code>def say_hello():</code> then indent the body with 4 spaces. Call it with <code>say_hello()</code>.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 2 — Greeting with a Name</h3>
+      <p>Write a function <code>greet(name)</code> that prints <em>"Hello, [name]! Nice to meet you."</em>. Call it with three different names.</p>
+      <details class="hint">
+        <summary>💡 Hint 1</summary>
+        <div class="hint-body">Define the function with one parameter: <code>def greet(name):</code>.</div>
+      </details>
+      <details class="hint">
+        <summary>💡 Hint 2</summary>
+        <div class="hint-body">Inside the function use an f-string: <code>print(f"Hello, {name}! Nice to meet you.")</code>.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 3 — Calculator Function</h3>
+      <p>Write a function <code>multiply(a, b)</code> that <em>returns</em> the product of <code>a</code> and <code>b</code>. Print the result of calling it with several different pairs of numbers.</p>
+      <details class="hint">
+        <summary>💡 Hint</summary>
+        <div class="hint-body">Use <code>return a * b</code> inside the function, then <code>print(multiply(3, 4))</code> outside.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 4 — Default Greeting</h3>
+      <p>Modify <code>greet</code> so the name has a default value of <code>"friend"</code>. Calling <code>greet()</code> with no argument should print <em>"Hello, friend! Nice to meet you."</em>.</p>
+      <details class="hint">
+        <summary>💡 Hint 1</summary>
+        <div class="hint-body">Set the default in the definition: <code>def greet(name="friend"):</code>.</div>
+      </details>
+      <details class="hint">
+        <summary>💡 Hint 2</summary>
+        <div class="hint-body">Call it both ways: <code>greet()</code> and <code>greet("Alice")</code> to see the difference.</div>
+      </details>
+    </div>
+
+    <div class="task challenge">
+      <h3>Task 5 — Temperature Converter ⭐</h3>
+      <p>Write two functions: <code>celsius_to_fahrenheit(c)</code> and <code>fahrenheit_to_celsius(f)</code>. Ask the user which direction they want to convert, read a temperature, call the right function, and print the result rounded to 1 decimal place.</p>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework 5: Functions — Python Lessons</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+<script src="../nav.js"></script>
+
+<div class="container">
+  <h1>✏️ Homework 5: Functions</h1>
+  <p>Complete all tasks below. Write your code in <code>homework_5.py</code> and run it to check your answers.</p>
+
+  <div class="tip">
+    <strong>💡 Quick reminder:</strong>
+    Functions let you test each piece of your program in isolation. Write one function at a time and test it before moving on — this is how professionals work.
+  </div>
+
+  <div class="tasks">
+    <h2>🎯 Tasks</h2>
+
+    <div class="task">
+      <h3>Task 1 — Even or Odd Checker</h3>
+      <p>Write a function <code>is_even(n)</code> that returns <code>True</code> if <code>n</code> is even, <code>False</code> otherwise. Ask the user for 5 numbers using a loop, call the function for each, and print <em>"[n] is even"</em> or <em>"[n] is odd"</em>.</p>
+      <details class="hint">
+        <summary>💡 Hint 1</summary>
+        <div class="hint-body">Use <code>n % 2 == 0</code> to check if a number is even.</div>
+      </details>
+      <details class="hint">
+        <summary>💡 Hint 2</summary>
+        <div class="hint-body">Collect the 5 numbers with <code>for i in range(5)</code> and <code>input()</code> inside.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 2 — FizzBuzz Function</h3>
+      <p>Write a function <code>fizzbuzz(n)</code> that returns <em>"Fizz"</em> if n is divisible by 3, <em>"Buzz"</em> if divisible by 5, <em>"FizzBuzz"</em> if both, and the number as a string otherwise. Call it for 1–30 and print each result.</p>
+      <details class="hint">
+        <summary>💡 Hint 1</summary>
+        <div class="hint-body">Check <code>n % 15 == 0</code> first (catches the both-divisible case), then 3, then 5.</div>
+      </details>
+      <details class="hint">
+        <summary>💡 Hint 2</summary>
+        <div class="hint-body">Return <code>str(n)</code> for the fallthrough case so all branches return a string.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 3 — Mini Statistics</h3>
+      <p>Write three functions: <code>my_min(lst)</code>, <code>my_max(lst)</code>, and <code>my_average(lst)</code> — each takes a list of numbers. Do <strong>not</strong> use Python's built-in <code>min()</code>, <code>max()</code>, or <code>sum()</code>. Test with two different lists.</p>
+      <details class="hint">
+        <summary>💡 Hint 1</summary>
+        <div class="hint-body">For min/max, initialise with the first item: <code>result = lst[0]</code>. Loop through the rest comparing.</div>
+      </details>
+      <details class="hint">
+        <summary>💡 Hint 2</summary>
+        <div class="hint-body">For average: use your own summing loop, then divide by <code>len(lst)</code>.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 4 — Recursive Countdown</h3>
+      <p>Write a function <code>countdown(n)</code> that prints numbers from <code>n</code> down to 1 and then prints <em>"Go!"</em> — using <strong>recursion</strong> (the function calls itself) instead of a loop.</p>
+      <details class="hint">
+        <summary>💡 Hint 1</summary>
+        <div class="hint-body">Base case: <code>if n == 0: print('Go!'); return</code>.</div>
+      </details>
+      <details class="hint">
+        <summary>💡 Hint 2</summary>
+        <div class="hint-body">Recursive case: print <code>n</code>, then call <code>countdown(n - 1)</code>.</div>
+      </details>
+    </div>
+
+    <div class="task challenge">
+      <h3>Task 5 — Text Analyser ⭐</h3>
+      <p>Write a function <code>analyze(text)</code> that accepts a string and returns a dictionary with keys: <code>"words"</code> (word count), <code>"chars"</code> (character count excluding spaces), <code>"sentences"</code> (count of <code>.</code> <code>?</code> <code>!</code> characters), and <code>"longest_word"</code>. Test it on at least two different strings and print the results.</p>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</body>
+</html>
