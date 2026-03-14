@@ -1,7 +1,7 @@
 /* ── Reset & base ── */
 * { box-sizing: border-box; }
 body {
-  font-family: 'Segoe UI', Tahoma, sans-serif;
+  font-family: 'Segoe UI', system-ui, -apple-system, Tahoma, sans-serif;
   margin: 0;
   background: #1e1e1e;
   color: #d4d4d4;
@@ -43,7 +43,7 @@ footer {
   border-top: 1px solid #333;
   padding: 14px 20px;
   text-align: center;
-  color: #666;
+  color: #888;
   font-size: 13px;
   margin-top: auto;
 }
@@ -69,7 +69,7 @@ nav {
   margin-right: 10px;
   text-decoration: none;
 }
-.sep   { color: #444; margin: 0 8px; }
+.sep   { color: #666; margin: 0 8px; }
 
 /* ── Dropdown ── */
 .dropdown { position: relative; }
@@ -204,7 +204,7 @@ details.hint .hint-body code {
 }
 .resource a   { color: #4fc1ff; font-size: 16px; font-weight: bold; text-decoration: none; }
 .resource a:hover { text-decoration: underline; }
-.resource p   { margin: 4px 0 0; color: #999; font-size: 14px; max-width: none; }
+.resource p   { margin: 4px 0 0; color: #aaa; font-size: 14px; max-width: none; }
 
 /* ── Homepage cards ── */
 .cards {
@@ -226,3 +226,82 @@ details.hint .hint-body code {
 }
 .card a:last-child { border-bottom: none; }
 .card a:hover { color: #fff; padding-left: 6px; }
+
+/* ── Transitions ── */
+.card {
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  border-color: #569cd6;
+}
+.card a { transition: padding-left 0.15s ease, color 0.15s; }
+
+nav > a,
+.brand,
+.dropdown-toggle,
+.dropdown-menu a { transition: background 0.12s, color 0.12s; }
+
+/* ── Focus styles ── */
+:focus-visible {
+  outline: 2px solid #007acc;
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* ── Hint expand/collapse indicator ── */
+details.hint summary::before {
+  content: '▶';
+  display: inline-block;
+  margin-right: 6px;
+  font-size: 10px;
+  transition: transform 0.15s;
+  vertical-align: middle;
+}
+details.hint[open] summary::before {
+  transform: rotate(90deg);
+}
+
+/* ── Challenge task (Task 5 ⭐) ── */
+.task.challenge {
+  border-left-color: #dcdcaa;
+  background: #29271a;
+}
+.task.challenge h3 { color: #dcdcaa; }
+
+/* ── Output / code preview blocks ── */
+.output-preview {
+  background: #1a1a1a;
+  padding: 10px;
+  border-radius: 6px;
+  color: #a8d8a8;
+  font-size: 14px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  overflow-x: auto;
+  margin: 10px 0;
+}
+
+.code-example {
+  background: #1a1a1a;
+  padding: 10px;
+  border-radius: 6px;
+  color: #9cdcfe;
+  font-size: 13px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  overflow-x: auto;
+  margin: 10px 0;
+}
+
+/* ── pre overflow ── */
+pre { overflow-x: auto; }
+
+/* ── Mobile responsive ── */
+@media (max-width: 640px) {
+  nav { overflow-x: auto; flex-wrap: nowrap; padding: 8px 12px; gap: 2px; }
+  .container { padding: 16px 14px 40px; }
+  .cards { grid-template-columns: 1fr; }
+  h1 { font-size: 22px; }
+  pre { font-size: 13px; }
+  .dropdown-menu { min-width: 180px; }
+}
