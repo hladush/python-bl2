@@ -117,6 +117,14 @@ for i in range(1, 4):
         <div class="hint-body"><code>range(10, 0, -1)</code> generates: 10, 9, 8 … 1.
         The third argument is the step — a negative step counts backwards.</div>
       </details>
+      <details class="solution">
+        <summary>✅ Show Solution</summary>
+        <div class="solution-body">
+          <pre><code class="language-python">for i in range(10, 0, -1):
+    print(i)
+print("Blast off! 🚀")</code></pre>
+        </div>
+      </details>
     </div>
 
     <div class="task">
@@ -133,6 +141,16 @@ for i in range(1, 4):
         <div class="hint-body">Use <code>range(1, n + 1)</code> — the stop value is exclusive,
         so you need <code>n + 1</code> to include <code>n</code> itself.</div>
       </details>
+      <details class="solution">
+        <summary>✅ Show Solution</summary>
+        <div class="solution-body">
+          <pre><code class="language-python">n = int(input("Enter a number: "))
+total = 0
+for i in range(1, n + 1):
+    total += i
+print(f"Sum = {total}")</code></pre>
+        </div>
+      </details>
     </div>
 
     <div class="task">
@@ -143,6 +161,15 @@ for i in range(1, 4):
         <summary>💡 Hint</summary>
         <div class="hint-body"><code>enumerate(my_list)</code> gives you both the index and the value at once:
         <code>for i, item in enumerate(my_list)</code>. Add 1 to <code>i</code> so the count starts at 1.</div>
+      </details>
+      <details class="solution">
+        <summary>✅ Show Solution</summary>
+        <div class="solution-body">
+          <pre><code class="language-python">favorites = ["Pizza", "Minecraft", "Music", "Football", "Books"]
+
+for i, item in enumerate(favorites):
+    print(f"{i + 1}. {item}")</code></pre>
+        </div>
       </details>
     </div>
 

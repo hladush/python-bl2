@@ -37,6 +37,24 @@
         <div class="hint-body">Height squared: <code>height ** 2</code> or <code>height * height</code>.
         So BMI = <code>weight / height ** 2</code>.</div>
       </details>
+      <details class="solution">
+        <summary>✅ Show Solution</summary>
+        <div class="solution-body">
+          <pre><code class="language-python">weight = float(input("Enter weight (kg): "))
+height = float(input("Enter height (m): "))
+
+bmi = weight / height ** 2
+
+if bmi &lt; 18.5:
+    print("Underweight")
+elif bmi &lt; 25:
+    print("Normal")
+elif bmi &lt; 30:
+    print("Overweight")
+else:
+    print("Obese")</code></pre>
+        </div>
+      </details>
     </div>
 
     <div class="task">
@@ -47,6 +65,23 @@
         <summary>💡 Hint</summary>
         <div class="hint-body">Use <code>if / elif / elif / elif / else</code> — one branch per age group.
         Check age ranges with <code>age &lt; 5</code>, <code>age &lt;= 12</code>, etc.</div>
+      </details>
+      <details class="solution">
+        <summary>✅ Show Solution</summary>
+        <div class="solution-body">
+          <pre><code class="language-python">age = int(input("Enter your age: "))
+
+if age &lt; 5:
+    print("Free")
+elif age &lt;= 12:
+    print("50 UAH")
+elif age &lt;= 17:
+    print("80 UAH")
+elif age &lt;= 64:
+    print("120 UAH")
+else:
+    print("60 UAH")</code></pre>
+        </div>
       </details>
     </div>
 

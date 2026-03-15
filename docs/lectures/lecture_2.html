@@ -108,6 +108,17 @@ else:
         <div class="hint-body">A number is even when there is no remainder after dividing by 2.
         Check with: <code>if number % 2 == 0</code>.</div>
       </details>
+      <details class="solution">
+        <summary>✅ Show Solution</summary>
+        <div class="solution-body">
+          <pre><code class="language-python">number = int(input("Enter a number: "))
+
+if number % 2 == 0:
+    print("Even")
+else:
+    print("Odd")</code></pre>
+        </div>
+      </details>
     </div>
 
     <div class="task">
@@ -118,6 +129,23 @@ else:
         <summary>💡 Hint</summary>
         <div class="hint-body">Always check from the highest score first using <code>if / elif / elif / else</code>.
         Once a condition matches, Python skips all the rest, so order matters!</div>
+      </details>
+      <details class="solution">
+        <summary>✅ Show Solution</summary>
+        <div class="solution-body">
+          <pre><code class="language-python">score = int(input("Enter your score: "))
+
+if score >= 90:
+    print("Grade: A")
+elif score >= 80:
+    print("Grade: B")
+elif score >= 70:
+    print("Grade: C")
+elif score >= 60:
+    print("Grade: D")
+else:
+    print("Grade: F")</code></pre>
+        </div>
       </details>
     </div>
 
@@ -134,6 +162,21 @@ else:
         <summary>💡 Hint 2</summary>
         <div class="hint-body">Use <code>%</code> to check divisibility: <code>num % 3 == 0</code> means
         the number is divisible by 3 with no remainder.</div>
+      </details>
+      <details class="solution">
+        <summary>✅ Show Solution</summary>
+        <div class="solution-body">
+          <pre><code class="language-python">num = 15  # try with 15, 9, 10, 7
+
+if num % 3 == 0 and num % 5 == 0:
+    print("FizzBuzz")
+elif num % 3 == 0:
+    print("Fizz")
+elif num % 5 == 0:
+    print("Buzz")
+else:
+    print(num)</code></pre>
+        </div>
       </details>
     </div>
 

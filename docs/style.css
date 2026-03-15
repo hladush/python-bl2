@@ -180,6 +180,15 @@ details.hint summary {
 }
 details.hint summary::-webkit-details-marker { display: none; }
 details.hint[open] summary { border-bottom: 1px solid #2a4a2a; }
+details.hint summary::before {
+  content: '▶';
+  display: inline-block;
+  margin-right: 6px;
+  font-size: 10px;
+  transition: transform 0.15s;
+  vertical-align: middle;
+}
+details.hint[open] summary::before { transform: rotate(90deg); }
 details.hint .hint-body {
   padding: 10px 14px;
   color: #b8d8b8;
@@ -192,6 +201,44 @@ details.hint .hint-body code {
   border-radius: 3px;
   font-size: 92%;
   font-family: 'Consolas', 'Courier New', monospace;
+}
+
+/* ── Solution (collapsible) ── */
+details.solution {
+  margin-top: 12px;
+  background: #1a1e2d;
+  border-left: 3px solid #007acc;
+  border-radius: 0 6px 6px 0;
+}
+details.solution summary {
+  cursor: pointer;
+  padding: 7px 12px;
+  color: #569cd6;
+  font-size: 13px;
+  font-weight: bold;
+  list-style: none;
+  user-select: none;
+}
+details.solution summary::-webkit-details-marker { display: none; }
+details.solution summary::before {
+  content: '▶';
+  display: inline-block;
+  margin-right: 6px;
+  font-size: 10px;
+  transition: transform 0.15s;
+  vertical-align: middle;
+}
+details.solution[open] summary::before { transform: rotate(90deg); }
+details.solution[open] summary { border-bottom: 1px solid #252d40; }
+details.solution .solution-body {
+  padding: 10px 14px;
+}
+details.solution .solution-body pre {
+  margin: 0;
+  background: #1a1a1a;
+  border-radius: 4px;
+  padding: 8px;
+  overflow-x: auto;
 }
 
 /* ── Resource list ── */
@@ -250,19 +297,6 @@ nav > a,
   border-radius: 3px;
 }
 
-/* ── Hint expand/collapse indicator ── */
-details.hint summary::before {
-  content: '▶';
-  display: inline-block;
-  margin-right: 6px;
-  font-size: 10px;
-  transition: transform 0.15s;
-  vertical-align: middle;
-}
-details.hint[open] summary::before {
-  transform: rotate(90deg);
-}
-
 /* ── Challenge task (Task 5 ⭐) ── */
 .task.challenge {
   border-left-color: #dcdcaa;
@@ -295,6 +329,83 @@ details.hint[open] summary::before {
 
 /* ── pre overflow ── */
 pre { overflow-x: auto; }
+
+/* ── Code Runner ── */
+.runner-wrap {
+  margin-top: 14px;
+  border-top: 1px solid #333;
+  padding-top: 14px;
+}
+.runner-editor {
+  width: 100%;
+  background: #1a1a1a;
+  color: #d4d4d4;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 14px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 10px;
+  resize: vertical;
+  tab-size: 4;
+  line-height: 1.5;
+}
+.runner-editor:focus { outline: none; border-color: #569cd6; }
+.runner-controls {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0;
+}
+.runner-btn-run {
+  background: #007acc;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.runner-btn-run:hover:not(:disabled) { background: #1a8fe0; }
+.runner-btn-run:disabled { opacity: 0.55; cursor: not-allowed; }
+.runner-btn-clear {
+  background: #3a3a3a;
+  color: #ccc;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.runner-btn-clear:hover { background: #4a4a4a; color: #fff; }
+.runner-output {
+  display: none;
+  background: #1a1a1a;
+  color: #a8d8a8;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 6px;
+  white-space: pre-wrap;
+  min-height: 40px;
+  border: 1px solid #333;
+}
+.runner-output.visible { display: block; }
+.runner-output.has-error { color: #f48771; }
+.runner-input-row {
+  display: flex;
+  gap: 6px;
+  margin: 4px 0;
+  align-items: center;
+}
+.runner-input-field {
+  background: #2d2d2d;
+  color: #d4d4d4;
+  border: 1px solid #569cd6;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 13px;
+  outline: none;
+}
 
 /* ── Mobile responsive ── */
 @media (max-width: 640px) {

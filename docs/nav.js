@@ -48,4 +48,25 @@
     '</nav>';
 
   document.body.insertAdjacentHTML('afterbegin', html);
+
+  // Load Python runner on pages with tasks
+  function loadScript(src, cb) {
+    var s = document.createElement('script'); s.src = src; s.onload = cb;
+    document.body.appendChild(s);
+  }
+  function initRunner() {
+    if (!document.querySelector('.task')) return;
+    loadScript('https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js', function() {
+      loadScript('https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js', function() {
+        loadScript(b + 'runner.js', function() {
+          if (window.PythonRunner) window.PythonRunner.init();
+        });
+      });
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initRunner);
+  } else {
+    initRunner();
+  }
 })();
