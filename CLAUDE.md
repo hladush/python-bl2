@@ -82,3 +82,13 @@ Wrap code with `<pre><code class="language-python">`.
 - **New homework:** create `docs/homework/homework_N.html`, add it to the dropdown in all existing pages.
 - **New resource:** add a `<div class="resource">` block to `docs/resources.html`.
 - **Shared styles:** edit `docs/style.css`.
+
+## Testing Requirements
+
+**Always test changes in the browser after making them.** Use Playwright (`mcp__playwright__*` tools) to open the affected page and verify the result visually.
+
+Minimum checks after any change:
+- Open the modified page in the browser and take a screenshot
+- Verify no JS errors in the console (`mcp__playwright__browser_console_messages`)
+- For runner/interactivity changes: paste code into a task runner, click Run, confirm output appears correctly
+- For `data-expected-output` changes: run the solution code and confirm ✅ badge appears; run wrong code and confirm ❌ badge appears

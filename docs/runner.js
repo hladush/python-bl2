@@ -8,15 +8,17 @@
       '<textarea class="runner-editor" rows="8" spellcheck="false"># Write your code here\n</textarea>' +
       '<div class="runner-controls">' +
         '<button class="runner-btn-run">&#9654; Run</button>' +
+        '<button class="runner-btn-validate">&#10003; Validate</button>' +
         '<button class="runner-btn-clear">&#10005; Clear</button>' +
       '</div>' +
       '<div class="runner-output"></div>';
     taskEl.appendChild(wrap);
 
-    var editor  = wrap.querySelector('.runner-editor');
-    var btnRun  = wrap.querySelector('.runner-btn-run');
-    var btnClear = wrap.querySelector('.runner-btn-clear');
-    var output  = wrap.querySelector('.runner-output');
+    var editor      = wrap.querySelector('.runner-editor');
+    var btnRun      = wrap.querySelector('.runner-btn-run');
+    var btnValidate = wrap.querySelector('.runner-btn-validate');
+    var btnClear    = wrap.querySelector('.runner-btn-clear');
+    var output      = wrap.querySelector('.runner-output');
 
     // Tab key inserts 4 spaces instead of moving focus
     editor.addEventListener('keydown', function (e) {
@@ -30,7 +32,11 @@
     });
 
     btnRun.addEventListener('click', function () {
-      runCode(editor.value, output, btnRun);
+      runCode(editor.value, output, btnRun, btnValidate, false);
+    });
+
+    btnValidate.addEventListener('click', function () {
+      runCode(editor.value, output, btnRun, btnValidate, true);
     });
 
     btnClear.addEventListener('click', function () {
@@ -84,14 +90,20 @@
     };
   }
 
-  function runCode(code, outputEl, btnRun) {
+  function runCode(code, outputEl, btnRun, btnValidate, doCheck) {
     outputEl.textContent = '';
     outputEl.classList.remove('has-error');
     outputEl.classList.add('visible');
     btnRun.disabled = true;
+    btnValidate.disabled = true;
+
+    var outputText = '';
+    var taskEl = outputEl.closest('.task');
+    var expected = taskEl ? taskEl.dataset.expectedOutput : undefined;
 
     Sk.configure({
       output: function (text) {
+        outputText += text;
         outputEl.appendChild(document.createTextNode(text));
       },
       inputfun: makeInputHandler(outputEl),
@@ -105,12 +117,32 @@
     }).then(
       function () {
         btnRun.disabled = false;
+        btnValidate.disabled = false;
+        if (doCheck) {
+          var badge = document.createElement('div');
+          if (expected === undefined) {
+            badge.className = 'runner-check-result info';
+            badge.textContent = '⚠️ No expected output defined for this task';
+          } else {
+            var passed = outputText.trim() === expected.trim();
+            badge.className = 'runner-check-result ' + (passed ? 'correct' : 'wrong');
+            badge.textContent = passed ? '✅ Correct!' : '❌ Not quite — check your output';
+          }
+          outputEl.appendChild(badge);
+        }
       },
       function (err) {
         outputEl.classList.add('has-error');
         var msg = err.toString ? err.toString() : String(err);
         outputEl.appendChild(document.createTextNode(msg));
         btnRun.disabled = false;
+        btnValidate.disabled = false;
+        if (doCheck) {
+          var badge = document.createElement('div');
+          badge.className = 'runner-check-result wrong';
+          badge.textContent = '❌ Not quite — check your output';
+          outputEl.appendChild(badge);
+        }
       }
     );
   }
