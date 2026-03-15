@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 5: Lists — Python Lessons</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+<script src="../nav.js"></script>
+
+<div class="container">
+  <h1>📋 Lecture 5: Lists</h1>
+  <p>A list lets you store many values in one variable, in order. Think of it like a backpack where you can toss in items, take them out, rearrange them, and check what you have at any time. Lists are one of the most important tools in programming — almost every real program uses them!</p>
+
+  <h2>1. Creating and Indexing a List</h2>
+  <p>You create a list with square brackets and separate items with commas. Each item has a position number called an index. The first item is at index 0 (not 1!). You can also count backwards from the end using negative numbers.</p>
+  <pre><code class="language-python">fruits = ['apple', 'banana', 'cherry']
+
+print(fruits[0])   # apple  — first item (index 0)
+print(fruits[1])   # banana — second item
+print(fruits[-1])  # cherry — last item (negative counts from end)
+print(fruits[-2])  # banana
+
+# Change an item
+fruits[1] = 'mango'
+print(fruits)  # ['apple', 'mango', 'cherry']</code></pre>
+
+  <div class="tip">
+    <strong>💡 Tip:</strong> Python lists are zero-indexed: the first item is at index 0, not 1. This is true in almost every programming language — getting used to it now will save confusion later.
+  </div>
+
+  <h2>2. Slicing a List</h2>
+  <p>Slicing lets you grab a chunk of a list at once. You write <code>list[start:stop]</code> — it gives you items from the start index up to (but not including) the stop index. You can leave out start or stop to mean "from the beginning" or "to the end".</p>
+  <pre><code class="language-python">numbers = [10, 20, 30, 40, 50]
+
+print(numbers[1:3])   # [20, 30]  — index 1 up to (not including) 3
+print(numbers[:3])    # [10, 20, 30] — from start up to index 3
+print(numbers[2:])    # [30, 40, 50] — from index 2 to end
+print(numbers[::2])   # [10, 30, 50] — every second item
+print(numbers[::-1])  # [50, 40, 30, 20, 10] — reversed!</code></pre>
+
+  <h2>3. Common List Methods</h2>
+  <p>Lists come with built-in methods — special commands you call with a dot. These let you add items, remove them, sort the list, and more. Here are the ones you will use most often.</p>
+  <pre><code class="language-python">items = ['cat', 'dog', 'bird']
+
+items.append('fish')       # add to end
+print(items)  # ['cat', 'dog', 'bird', 'fish']
+
+items.insert(1, 'hamster') # insert at index 1
+print(items)  # ['cat', 'hamster', 'dog', 'bird', 'fish']
+
+items.remove('dog')        # remove by value
+print(items)  # ['cat', 'hamster', 'bird', 'fish']
+
+last = items.pop()         # remove and return last item
+print(last)   # fish
+
+numbers = [3, 1, 4, 1, 5]
+numbers.sort()             # sort in place (ascending)
+print(numbers)  # [1, 1, 3, 4, 5]
+print(len(numbers))  # 5</code></pre>
+
+  <div class="tip">
+    <strong>💡 Tip:</strong> The <code>sort()</code> method changes the original list. If you want a sorted copy without changing the original, use <code>sorted(my_list)</code> instead.
+  </div>
+
+  <h2>4. Looping Over a List</h2>
+  <p>You already know for loops from Lecture 3. They work perfectly with lists! You can loop through every item, or use <code>enumerate()</code> to get both the index and the value at the same time. A very common pattern is building a new list by looping through an old one.</p>
+  <pre><code class="language-python">scores = [85, 92, 78, 95, 60]
+
+# Simple loop
+for score in scores:
+    print(score)
+
+# enumerate() gives index and value together
+for i, score in enumerate(scores):
+    print(f'Student {i + 1}: {score}')
+
+# Build a new list using a loop
+doubled = []
+for score in scores:
+    doubled.append(score * 2)
+print(doubled)  # [170, 184, 156, 190, 120]</code></pre>
+
+  <h2>5. Checking Membership and Counting</h2>
+  <p>Want to know if something is in your list? Use the <code>in</code> keyword. It returns <code>True</code> or <code>False</code>, so you can use it directly in an <code>if</code> statement. You can also count how many times a value appears.</p>
+  <pre><code class="language-python">colors = ['red', 'green', 'blue']
+
+if 'red' in colors:
+    print('Red is in the list!')   # prints
+
+if 'yellow' not in colors:
+    print('Yellow is missing.')    # prints
+
+# count() — how many times does a value appear?
+numbers = [1, 2, 2, 3, 2, 4]
+print(numbers.count(2))  # 3</code></pre>
+
+  <div class="tip">
+    <strong>💡 Tip:</strong> Use <code>if item in my_list</code> to check whether a value exists — no loop needed. It is fast to write and easy to read, which is exactly what good code looks like.
+  </div>
+
+  <!-- ── Tasks ── -->
+  <div class="tasks">
+    <h2>🎯 Tasks</h2>
+
+    <div class="task">
+      <h3>Task 1 — My Playlist</h3>
+      <p>Create a list of 5 song names (your actual favorite songs!). Print the first song, the last song, and the middle song using indexing. Then print the total number of songs using <code>len()</code>.</p>
+      <details class="hint">
+        <summary>💡 Hint 1</summary>
+        <div class="hint-body">The first item is <code>my_list[0]</code>. The last is <code>my_list[-1]</code>. The middle of a 5-item list is index 2.</div>
+      </details>
+      <details class="hint">
+        <summary>💡 Hint 2</summary>
+        <div class="hint-body">Use <code>len(my_list)</code> to print the count of items.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 2 — Shopping List Manager</h3>
+      <p>Start with a shopping list of 3 items. Use <code>append()</code> to add two more items, then use <code>remove()</code> to delete one item you changed your mind about. Print the final list and how many items are left.</p>
+      <details class="hint">
+        <summary>💡 Hint 1</summary>
+        <div class="hint-body"><code>my_list.append('milk')</code> adds to the end. <code>my_list.remove('bread')</code> deletes by value.</div>
+      </details>
+      <details class="hint">
+        <summary>💡 Hint 2</summary>
+        <div class="hint-body">Use <code>len(my_list)</code> to get the count of items after all changes. Remember: <code>remove()</code> deletes by value, not by index. If you want to remove by index, use <code>pop(index)</code>.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 3 — Sorted Scores</h3>
+      <p>Create a list of 6 exam scores (numbers). Print them sorted from lowest to highest, and then from highest to lowest. Make sure both sorted versions print correctly!</p>
+      <details class="hint">
+        <summary>💡 Hint 1</summary>
+        <div class="hint-body"><code>sort()</code> changes the original list. Sort ascending first, print it, then sort descending with <code>sort(reverse=True)</code> and print again.</div>
+      </details>
+      <details class="hint">
+        <summary>💡 Hint 2</summary>
+        <div class="hint-body">Alternatively, use <code>sorted(my_list)</code> to get a sorted copy without changing the original.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 4 — Find the Maximum</h3>
+      <p>Without using Python's built-in <code>max()</code> function, write a <code>for</code> loop that finds the largest number in a list of 7 numbers you define. Print the biggest number at the end.</p>
+      <details class="hint">
+        <summary>💡 Hint 1</summary>
+        <div class="hint-body">Start with <code>biggest = my_list[0]</code>. Then loop through all items — if an item is greater than <code>biggest</code>, update <code>biggest</code>.</div>
+      </details>
+      <details class="hint">
+        <summary>💡 Hint 2</summary>
+        <div class="hint-body">Combine <code>if</code> and <code>for</code>: <code>if num > biggest: biggest = num</code>.</div>
+      </details>
+    </div>
+
+    <div class="task challenge">
+      <h3>Task 5 — Word Filter ⭐</h3>
+      <p>Ask the user to enter 5 words one at a time (use a loop and <code>append()</code> to build the list). Then print only the words that are longer than 4 characters, each on its own line. If none are longer than 4 characters, print <em>"No long words found!"</em></p>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</body>
+</html>

@@ -28,6 +28,7 @@
           link('lectures/lecture_2.html', 'Lecture 2: If-Else Conditions') +
           link('lectures/lecture_3.html', 'Lecture 3: Cycles (Loops)') +
           link('lectures/lecture_4.html', 'Lecture 4: Functions') +
+          link('lectures/lecture_5.html', 'Lecture 5: Lists') +
         '</div>' +
       '</div>' +
       '<span class="sep">|</span>' +
@@ -39,6 +40,7 @@
           link('homework/homework_3.html', 'Homework 3: Cycles') +
           link('homework/homework_4.html', 'Homework 4: Build &amp; Deploy') +
           link('homework/homework_5.html', 'Homework 5: Functions') +
+          link('homework/homework_6.html', 'Homework 6: Lists') +
         '</div>' +
       '</div>' +
       '<span class="sep">|</span>' +

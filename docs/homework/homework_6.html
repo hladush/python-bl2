@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework 6: Lists — Python Lessons</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+<script src="../nav.js"></script>
+
+<div class="container">
+  <h1>✏️ Homework 6: Lists</h1>
+  <p>Complete all tasks below. Write your code in <code>homework_6.py</code> and run it to check your answers.</p>
+
+  <div class="tip">
+    <strong>💡 Quick reminder:</strong>
+    Lists are your best friend for storing collections of data. These tasks combine lists with loops, functions, and conditionals — all the things you have learned so far!
+  </div>
+
+  <div class="tasks">
+    <h2>🎯 Tasks</h2>
+
+    <div class="task">
+      <h3>Task 1 — Sum and Average</h3>
+      <p>Ask the user for 5 numbers (one at a time, using a loop). Store them in a list. Print the list, the sum of all numbers, and the average. Use a loop to calculate the sum — do <strong>not</strong> use Python's built-in <code>sum()</code> function.</p>
+      <details class="hint">
+        <summary>💡 Hint 1</summary>
+        <div class="hint-body">Use <code>int(input(...))</code> inside a <code>for</code> loop and <code>append()</code> each number to your list.</div>
+      </details>
+      <details class="hint">
+        <summary>💡 Hint 2</summary>
+        <div class="hint-body">To find the average, divide the total by <code>len(my_list)</code>.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 2 — Reverse Without Cheating</h3>
+      <p>Write a function called <code>reverse_list(lst)</code> that takes a list and returns a new list with the items in reverse order. Do <strong>NOT</strong> use the built-in <code>reverse()</code> method or <code>[::-1]</code> slicing — build the reversed list yourself using a loop. Test it with at least two different lists.</p>
+      <details class="hint">
+        <summary>💡 Hint 1</summary>
+        <div class="hint-body">Create an empty list. Loop through the original and insert each item at position 0 using <code>insert(0, item)</code>, or loop backwards using <code>range(len(lst) - 1, -1, -1)</code>.</div>
+      </details>
+      <details class="hint">
+        <summary>💡 Hint 2</summary>
+        <div class="hint-body">Remember from Lecture 4: use <code>return</code> to send the new list back from your function.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 3 — Even and Odd Splitter</h3>
+      <p>Create a list of 10 numbers between 1 and 100 (just type them in). Write code that builds two new lists: one containing all the even numbers, and one containing all the odd numbers. Print both lists and how many items are in each.</p>
+      <details class="hint">
+        <summary>💡 Hint 1</summary>
+        <div class="hint-body">A number is even if <code>num % 2 == 0</code>. Loop through the original list, check each number, and <code>append()</code> it to the right new list.</div>
+      </details>
+      <details class="hint">
+        <summary>💡 Hint 2</summary>
+        <div class="hint-body">Create both empty lists before the loop starts: <code>evens = []</code> and <code>odds = []</code>.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 4 — Remove Duplicates</h3>
+      <p>Write a function called <code>remove_duplicates(lst)</code> that takes a list and returns a new list with all duplicate values removed, keeping only the first occurrence of each item. For example, <code>remove_duplicates([1, 2, 2, 3, 1, 4])</code> should return <code>[1, 2, 3, 4]</code>. Test it with a list of at least 8 items that has several duplicates.</p>
+      <details class="hint">
+        <summary>💡 Hint 1</summary>
+        <div class="hint-body">Create an empty result list. Loop through the original — only append an item if it is not already in the result list (use the <code>in</code> keyword to check).</div>
+      </details>
+      <details class="hint">
+        <summary>💡 Hint 2</summary>
+        <div class="hint-body">The check looks like: <code>if item not in result: result.append(item)</code>.</div>
+      </details>
+    </div>
+
+    <div class="task">
+      <h3>Task 5 — Common and Unique Items</h3>
+      <p>Write a function called <code>common_items(list1, list2)</code> that takes two lists and returns a new list containing only the items that appear in both lists (no duplicates in the result). Then write a second function called <code>unique_items(list1, list2)</code> that returns items that appear in only one of the two lists, but not both. Test both functions with lists of your friends' favorite games or movies.</p>
+      <details class="hint">
+        <summary>💡 Hint</summary>
+        <div class="hint-body">For <code>common_items</code>, loop through <code>list1</code> and check if each item is also <code>in list2</code>. For <code>unique_items</code>, think about which items are in one list but <code>not in</code> the other.</div>
+      </details>
+    </div>
+
+    <div class="task challenge">
+      <h3>Task 6 — Mini To-Do List App ⭐</h3>
+      <p>Build a mini to-do list app. The program should loop forever (<code>while True</code>) and show a menu: 1) Add task, 2) Remove task, 3) Show all tasks, 4) Mark task as done (print it with a ✅ checkmark), 5) Quit. Use a list to store the tasks and another list to track which ones are done. Combine everything you know: lists, loops, functions, and if/else!</p>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</body>
+</html>
