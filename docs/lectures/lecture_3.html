@@ -127,10 +127,11 @@ print("Blast off! 🚀")</code></pre>
       </details>
     </div>
 
-    <div class="task">
+    <div class="task" data-expected-output="Sum = 15">
       <h3>Task 2 — Sum of Numbers</h3>
       <p>Ask the user to enter a number <code>n</code>. Use a loop to calculate the sum of all numbers
-      from 1 to <code>n</code> and print the result. Example: <code>n = 5</code> → <em>"Sum = 15"</em>.</p>
+      from 1 to <code>n</code> and print the result. Example: <code>n = 5</code> → <em>"Sum = 15"</em>.
+      To check: enter <code>5</code>.</p>
       <details class="hint">
         <summary>💡 Hint 1</summary>
         <div class="hint-body">Create a <code>total = 0</code> variable <em>before</em> the loop.
@@ -173,10 +174,11 @@ for i, item in enumerate(favorites):
       </details>
     </div>
 
-    <div class="task">
+    <div class="task" data-expected-output="Correct! 🎉">
       <h3>Task 4 — Guess the Number</h3>
-      <p>Pick a secret number (hardcode it). Use a <code>while</code> loop to keep asking the user to guess.
-      Print <em>"Too high!"</em>, <em>"Too low!"</em>, or <em>"Correct! 🎉"</em> after each guess.</p>
+      <p>Hardcode <code>secret = 7</code>. Use a <code>while</code> loop to keep asking the user to guess.
+      Print <em>"Too high!"</em>, <em>"Too low!"</em>, or <em>"Correct! 🎉"</em> after each guess.
+      To check: enter <code>7</code> as your first guess.</p>
       <details class="hint">
         <summary>💡 Hint 1</summary>
         <div class="hint-body">Use <code>while True</code> and <code>break</code> when the guess is correct.
@@ -186,6 +188,22 @@ for i, item in enumerate(favorites):
         <summary>💡 Hint 2</summary>
         <div class="hint-body"><code>input()</code> returns a string. Convert it to an integer first:
         <code>guess = int(input("Your guess: "))</code>.</div>
+      </details>
+      <details class="solution">
+        <summary>✅ Show Solution</summary>
+        <div class="solution-body">
+          <pre><code class="language-python">secret = 7
+
+while True:
+    guess = int(input("Your guess: "))
+    if guess > secret:
+        print("Too high!")
+    elif guess < secret:
+        print("Too low!")
+    else:
+        print("Correct! 🎉")
+        break</code></pre>
+        </div>
       </details>
     </div>
 
