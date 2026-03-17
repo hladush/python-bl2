@@ -129,10 +129,11 @@ print(type(likes_coding))</code></pre>
       </details>
     </div>
 
-    <div class="task">
+    <div class="task" data-expected-output="13&#10;7&#10;30&#10;3.333333333333333&#10;3&#10;1">
       <h3>Task 2 — Math Time</h3>
       <p>Create two number variables <code>a</code> and <code>b</code>. Calculate and print their sum,
-      difference, product, regular division, floor division, and remainder.</p>
+      difference, product, regular division, floor division, and remainder.
+      Use <code>a = 10</code> and <code>b = 3</code>.</p>
       <details class="hint">
         <summary>💡 Hint 1</summary>
         <div class="hint-body">Use <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>//</code>, <code>%</code> operators one per line.</div>
@@ -177,15 +178,25 @@ print(full_name.lower())</code></pre>
       </details>
     </div>
 
-    <div class="task">
+    <div class="task" data-expected-output="My name is Alice, I am 12 years old, and my favorite color is blue.">
       <h3>Task 4 — f-String Message</h3>
       <p>Using variables (not hardcoded text), print a sentence like:<br>
       <em>"My name is Alice, I am 12 years old, and my favorite color is blue."</em><br>
-      Use an f-string.</p>
+      Use an f-string. Use <code>name = "Alice"</code>, <code>age = 12</code>, <code>favorite_color = "blue"</code>.</p>
       <details class="hint">
         <summary>💡 Hint</summary>
         <div class="hint-body">An f-string starts with the letter <code>f</code> before the quote: <code>f"Hello, {name}!"</code>.
         Put any variable name inside curly braces <code>{}</code>.</div>
+      </details>
+      <details class="solution">
+        <summary>✅ Show Solution</summary>
+        <div class="solution-body">
+          <pre><code class="language-python">name = "Alice"
+age = 12
+favorite_color = "blue"
+
+print(f"My name is {name}, I am {age} years old, and my favorite color is {favorite_color}.")</code></pre>
+        </div>
       </details>
     </div>
 

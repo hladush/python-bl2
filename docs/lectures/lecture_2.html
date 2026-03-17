@@ -180,16 +180,33 @@ else:
       </details>
     </div>
 
-    <div class="task">
+    <div class="task" data-expected-output="Welcome!">
       <h3>Task 4 — Can I Enter?</h3>
       <p>Create two variables: <code>age</code> and <code>has_ticket</code> (True/False).
       Print <em>"Welcome!"</em> only if the person is at least 16 <strong>and</strong> has a ticket.
-      Otherwise print a message explaining which condition failed.</p>
+      Otherwise print a message explaining which condition failed.
+      Use <code>age = 17</code> and <code>has_ticket = True</code> to test.</p>
       <details class="hint">
         <summary>💡 Hint</summary>
         <div class="hint-body">Use <code>and</code> to check both conditions at once:
         <code>if age >= 16 and has_ticket</code>.
         For the else, use two separate <code>if</code> statements to figure out which part failed.</div>
+      </details>
+      <details class="solution">
+        <summary>✅ Show Solution</summary>
+        <div class="solution-body">
+          <pre><code class="language-python">age = 17
+has_ticket = True
+
+if age >= 16 and has_ticket:
+    print("Welcome!")
+elif age < 16 and not has_ticket:
+    print("Too young and no ticket.")
+elif age < 16:
+    print("Too young.")
+else:
+    print("No ticket.")</code></pre>
+        </div>
       </details>
     </div>
 

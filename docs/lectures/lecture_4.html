@@ -103,18 +103,29 @@ print(circle_area(5))  # 78.5</code></pre>
   <div class="tasks">
     <h2>🎯 Tasks</h2>
 
-    <div class="task">
+    <div class="task" data-expected-output="Hello, World!&#10;Hello, World!&#10;Hello, World!">
       <h3>Task 1 — Hello, Function!</h3>
       <p>Write a function called <code>say_hello()</code> that prints <em>"Hello, World!"</em>. Call it three times.</p>
       <details class="hint">
         <summary>💡 Hint</summary>
         <div class="hint-body">Use <code>def say_hello():</code> then indent the body with 4 spaces. Call it with <code>say_hello()</code>.</div>
       </details>
+      <details class="solution">
+        <summary>✅ Show Solution</summary>
+        <div class="solution-body">
+          <pre><code class="language-python">def say_hello():
+    print("Hello, World!")
+
+say_hello()
+say_hello()
+say_hello()</code></pre>
+        </div>
+      </details>
     </div>
 
-    <div class="task">
+    <div class="task" data-expected-output="Hello, Alice! Nice to meet you.&#10;Hello, Bob! Nice to meet you.&#10;Hello, Charlie! Nice to meet you.">
       <h3>Task 2 — Greeting with a Name</h3>
-      <p>Write a function <code>greet(name)</code> that prints <em>"Hello, [name]! Nice to meet you."</em>. Call it with three different names.</p>
+      <p>Write a function <code>greet(name)</code> that prints <em>"Hello, [name]! Nice to meet you."</em>. Call it with <code>"Alice"</code>, <code>"Bob"</code>, and <code>"Charlie"</code>.</p>
       <details class="hint">
         <summary>💡 Hint 1</summary>
         <div class="hint-body">Define the function with one parameter: <code>def greet(name):</code>.</div>
@@ -123,20 +134,42 @@ print(circle_area(5))  # 78.5</code></pre>
         <summary>💡 Hint 2</summary>
         <div class="hint-body">Inside the function use an f-string: <code>print(f"Hello, {name}! Nice to meet you.")</code>.</div>
       </details>
+      <details class="solution">
+        <summary>✅ Show Solution</summary>
+        <div class="solution-body">
+          <pre><code class="language-python">def greet(name):
+    print(f"Hello, {name}! Nice to meet you.")
+
+greet("Alice")
+greet("Bob")
+greet("Charlie")</code></pre>
+        </div>
+      </details>
     </div>
 
-    <div class="task">
+    <div class="task" data-expected-output="12&#10;30&#10;56">
       <h3>Task 3 — Calculator Function</h3>
-      <p>Write a function <code>multiply(a, b)</code> that <em>returns</em> the product of <code>a</code> and <code>b</code>. Print the result of calling it with several different pairs of numbers.</p>
+      <p>Write a function <code>multiply(a, b)</code> that <em>returns</em> the product of <code>a</code> and <code>b</code>. Print the result of calling it with <code>(3, 4)</code>, <code>(5, 6)</code>, and <code>(7, 8)</code>.</p>
       <details class="hint">
         <summary>💡 Hint</summary>
         <div class="hint-body">Use <code>return a * b</code> inside the function, then <code>print(multiply(3, 4))</code> outside.</div>
       </details>
+      <details class="solution">
+        <summary>✅ Show Solution</summary>
+        <div class="solution-body">
+          <pre><code class="language-python">def multiply(a, b):
+    return a * b
+
+print(multiply(3, 4))
+print(multiply(5, 6))
+print(multiply(7, 8))</code></pre>
+        </div>
+      </details>
     </div>
 
-    <div class="task">
+    <div class="task" data-expected-output="Hello, friend! Nice to meet you.&#10;Hello, Alice! Nice to meet you.">
       <h3>Task 4 — Default Greeting</h3>
-      <p>Modify <code>greet</code> so the name has a default value of <code>"friend"</code>. Calling <code>greet()</code> with no argument should print <em>"Hello, friend! Nice to meet you."</em>.</p>
+      <p>Modify <code>greet</code> so the name has a default value of <code>"friend"</code>. Calling <code>greet()</code> with no argument should print <em>"Hello, friend! Nice to meet you."</em>. Then call <code>greet("Alice")</code>.</p>
       <details class="hint">
         <summary>💡 Hint 1</summary>
         <div class="hint-body">Set the default in the definition: <code>def greet(name="friend"):</code>.</div>
@@ -144,6 +177,16 @@ print(circle_area(5))  # 78.5</code></pre>
       <details class="hint">
         <summary>💡 Hint 2</summary>
         <div class="hint-body">Call it both ways: <code>greet()</code> and <code>greet("Alice")</code> to see the difference.</div>
+      </details>
+      <details class="solution">
+        <summary>✅ Show Solution</summary>
+        <div class="solution-body">
+          <pre><code class="language-python">def greet(name="friend"):
+    print(f"Hello, {name}! Nice to meet you.")
+
+greet()
+greet("Alice")</code></pre>
+        </div>
       </details>
     </div>
 

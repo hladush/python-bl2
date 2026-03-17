@@ -106,9 +106,10 @@ print(numbers.count(2))  # 3</code></pre>
   <div class="tasks">
     <h2>🎯 Tasks</h2>
 
-    <div class="task">
+    <div class="task" data-expected-output="Shape of You&#10;Stay&#10;Dance Monkey&#10;5">
       <h3>Task 1 — My Playlist</h3>
-      <p>Create a list of 5 song names (your actual favorite songs!). Print the first song, the last song, and the middle song using indexing. Then print the total number of songs using <code>len()</code>.</p>
+      <p>Create a list of 5 song names. Print the first song, the last song, and the middle song using indexing. Then print the total number of songs using <code>len()</code>.
+      Use: <code>["Shape of You", "Blinding Lights", "Dance Monkey", "Levitating", "Stay"]</code>.</p>
       <details class="hint">
         <summary>💡 Hint 1</summary>
         <div class="hint-body">The first item is <code>my_list[0]</code>. The last is <code>my_list[-1]</code>. The middle of a 5-item list is index 2.</div>
@@ -117,11 +118,22 @@ print(numbers.count(2))  # 3</code></pre>
         <summary>💡 Hint 2</summary>
         <div class="hint-body">Use <code>len(my_list)</code> to print the count of items.</div>
       </details>
+      <details class="solution">
+        <summary>✅ Show Solution</summary>
+        <div class="solution-body">
+          <pre><code class="language-python">playlist = ["Shape of You", "Blinding Lights", "Dance Monkey", "Levitating", "Stay"]
+
+print(playlist[0])   # first
+print(playlist[-1])  # last
+print(playlist[2])   # middle
+print(len(playlist))</code></pre>
+        </div>
+      </details>
     </div>
 
-    <div class="task">
+    <div class="task" data-expected-output="['apples', 'milk', 'eggs', 'cheese']&#10;4">
       <h3>Task 2 — Shopping List Manager</h3>
-      <p>Start with a shopping list of 3 items. Use <code>append()</code> to add two more items, then use <code>remove()</code> to delete one item you changed your mind about. Print the final list and how many items are left.</p>
+      <p>Start with <code>["apples", "bread", "milk"]</code>. Use <code>append()</code> to add <code>"eggs"</code> and <code>"cheese"</code>, then use <code>remove()</code> to delete <code>"bread"</code>. Print the final list and how many items are left.</p>
       <details class="hint">
         <summary>💡 Hint 1</summary>
         <div class="hint-body"><code>my_list.append('milk')</code> adds to the end. <code>my_list.remove('bread')</code> deletes by value.</div>
@@ -130,11 +142,24 @@ print(numbers.count(2))  # 3</code></pre>
         <summary>💡 Hint 2</summary>
         <div class="hint-body">Use <code>len(my_list)</code> to get the count of items after all changes. Remember: <code>remove()</code> deletes by value, not by index. If you want to remove by index, use <code>pop(index)</code>.</div>
       </details>
+      <details class="solution">
+        <summary>✅ Show Solution</summary>
+        <div class="solution-body">
+          <pre><code class="language-python">shopping = ["apples", "bread", "milk"]
+
+shopping.append("eggs")
+shopping.append("cheese")
+shopping.remove("bread")
+
+print(shopping)
+print(len(shopping))</code></pre>
+        </div>
+      </details>
     </div>
 
-    <div class="task">
+    <div class="task" data-expected-output="[60, 73, 78, 85, 92, 95]&#10;[95, 92, 85, 78, 73, 60]">
       <h3>Task 3 — Sorted Scores</h3>
-      <p>Create a list of 6 exam scores (numbers). Print them sorted from lowest to highest, and then from highest to lowest. Make sure both sorted versions print correctly!</p>
+      <p>Use <code>[85, 92, 78, 95, 60, 73]</code> as your list of exam scores. Print them sorted from lowest to highest, and then from highest to lowest.</p>
       <details class="hint">
         <summary>💡 Hint 1</summary>
         <div class="hint-body"><code>sort()</code> changes the original list. Sort ascending first, print it, then sort descending with <code>sort(reverse=True)</code> and print again.</div>
@@ -143,11 +168,23 @@ print(numbers.count(2))  # 3</code></pre>
         <summary>💡 Hint 2</summary>
         <div class="hint-body">Alternatively, use <code>sorted(my_list)</code> to get a sorted copy without changing the original.</div>
       </details>
+      <details class="solution">
+        <summary>✅ Show Solution</summary>
+        <div class="solution-body">
+          <pre><code class="language-python">scores = [85, 92, 78, 95, 60, 73]
+
+scores.sort()
+print(scores)
+
+scores.sort(reverse=True)
+print(scores)</code></pre>
+        </div>
+      </details>
     </div>
 
-    <div class="task">
+    <div class="task" data-expected-output="9">
       <h3>Task 4 — Find the Maximum</h3>
-      <p>Without using Python's built-in <code>max()</code> function, write a <code>for</code> loop that finds the largest number in a list of 7 numbers you define. Print the biggest number at the end.</p>
+      <p>Without using Python's built-in <code>max()</code> function, write a <code>for</code> loop that finds the largest number in <code>[3, 7, 1, 9, 4, 8, 2]</code>. Print the biggest number at the end.</p>
       <details class="hint">
         <summary>💡 Hint 1</summary>
         <div class="hint-body">Start with <code>biggest = my_list[0]</code>. Then loop through all items — if an item is greater than <code>biggest</code>, update <code>biggest</code>.</div>
@@ -155,6 +192,19 @@ print(numbers.count(2))  # 3</code></pre>
       <details class="hint">
         <summary>💡 Hint 2</summary>
         <div class="hint-body">Combine <code>if</code> and <code>for</code>: <code>if num > biggest: biggest = num</code>.</div>
+      </details>
+      <details class="solution">
+        <summary>✅ Show Solution</summary>
+        <div class="solution-body">
+          <pre><code class="language-python">numbers = [3, 7, 1, 9, 4, 8, 2]
+biggest = numbers[0]
+
+for num in numbers:
+    if num > biggest:
+        biggest = num
+
+print(biggest)</code></pre>
+        </div>
       </details>
     </div>
 
